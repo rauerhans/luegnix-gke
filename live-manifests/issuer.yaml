@@ -1,0 +1,108 @@
+apiVersion: v1
+items:
+- apiVersion: cert-manager.io/v1
+  kind: Issuer
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    generation: 1
+    labels:
+      app: plural-certmanager-webhook
+      app.kubernetes.io/managed-by: Helm
+      chart: plural-certmanager-webhook-0.1.5
+      heritage: Helm
+      release: bootstrap
+    name: bootstrap-plural-certmanager-webhook-ca
+    namespace: bootstrap
+    resourceVersion: "13375"
+    uid: 09630b6d-84fa-492d-9f7f-79b165679ff5
+  spec:
+    ca:
+      secretName: bootstrap-plural-certmanager-webhook-ca
+  status:
+    conditions:
+    - lastTransitionTime: "2023-02-07T14:02:51Z"
+      message: Signing CA verified
+      observedGeneration: 1
+      reason: KeyPairVerified
+      status: "True"
+      type: Ready
+- apiVersion: cert-manager.io/v1
+  kind: Issuer
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    generation: 1
+    labels:
+      app: plural-certmanager-webhook
+      app.kubernetes.io/managed-by: Helm
+      chart: plural-certmanager-webhook-0.1.5
+      heritage: Helm
+      release: bootstrap
+    name: bootstrap-plural-certmanager-webhook-selfsign
+    namespace: bootstrap
+    resourceVersion: "12929"
+    uid: abbfaf21-fcb1-4e91-a0fb-baf18813a76b
+  spec:
+    selfSigned: {}
+  status:
+    conditions:
+    - lastTransitionTime: "2023-02-07T14:02:11Z"
+      observedGeneration: 1
+      reason: IsReady
+      status: "True"
+      type: Ready
+- apiVersion: cert-manager.io/v1
+  kind: Issuer
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: plural-operator-selfsigned-issuer
+    namespace: bootstrap
+    resourceVersion: "12928"
+    uid: 2074eff0-536e-4a8f-82aa-282cc04958eb
+  spec:
+    selfSigned: {}
+  status:
+    conditions:
+    - lastTransitionTime: "2023-02-07T14:02:11Z"
+      observedGeneration: 1
+      reason: IsReady
+      status: "True"
+      type: Ready
+- apiVersion: cert-manager.io/v1
+  kind: Issuer
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:40Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: opentelemetry-operator
+    name: opentelemetry-operator-selfsigned-issuer
+    namespace: monitoring
+    resourceVersion: "14149"
+    uid: b5b95ab4-e0de-4bfa-a25a-745c7e5c965c
+  spec:
+    selfSigned: {}
+  status:
+    conditions:
+    - lastTransitionTime: "2023-02-07T14:03:41Z"
+      observedGeneration: 1
+      reason: IsReady
+      status: "True"
+      type: Ready
+kind: List
+metadata:
+  resourceVersion: ""

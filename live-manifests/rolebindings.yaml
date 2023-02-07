@@ -1,0 +1,669 @@
+apiVersion: v1
+items:
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:25Z"
+    labels:
+      app: webhook
+      app.kubernetes.io/component: webhook
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: webhook
+      app.kubernetes.io/version: v1.8.2
+      helm.sh/chart: cert-manager-v1.8.2
+    name: bootstrap-cert-manager-webhook:dynamic-serving
+    namespace: bootstrap
+    resourceVersion: "12217"
+    uid: f81de329-adfa-41be-9d51-2492a4ad9e29
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: bootstrap-cert-manager-webhook:dynamic-serving
+  subjects:
+  - kind: ServiceAccount
+    name: bootstrap-cert-manager-webhook
+    namespace: bootstrap
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:25Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: kube-app-manager
+      control-plane: kube-app-manager
+    name: kube-app-manager-leader-election-rolebinding
+    namespace: bootstrap
+    resourceVersion: "12215"
+    uid: f3482354-8fd7-4b1f-9ee6-0962be7a7b73
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: kube-app-manager-leader-election-role
+  subjects:
+  - kind: ServiceAccount
+    name: application-system
+    namespace: bootstrap
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:25Z"
+    labels:
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: bootstrap
+      app.kubernetes.io/version: "1.0"
+      helm.sh/chart: bootstrap-0.8.63
+    name: plrl-operator-leader-election-rolebinding
+    namespace: bootstrap
+    resourceVersion: "12214"
+    uid: 3baedbdd-cb73-43ed-8464-a14fa8c987c6
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: leader-election-role
+  subjects:
+  - kind: ServiceAccount
+    name: plural-operator
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T14:09:07Z"
+    name: postgres-pod
+    namespace: console
+    resourceVersion: "18320"
+    uid: 96c22445-da85-4b2f-84cd-588ed849567d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: postgres-pod
+  subjects:
+  - kind: ServiceAccount
+    name: postgres-pod
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: ingress-nginx
+      meta.helm.sh/release-namespace: ingress-nginx
+    creationTimestamp: "2023-02-07T14:05:45Z"
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: ingress-nginx
+      app.kubernetes.io/part-of: ingress-nginx
+      app.kubernetes.io/version: 1.5.1
+      helm.sh/chart: ingress-nginx-4.4.0
+    name: ingress-nginx
+    namespace: ingress-nginx
+    resourceVersion: "15985"
+    uid: 163e8c29-3e0d-4104-9fa0-1590f6cf5d75
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: ingress-nginx
+  subjects:
+  - kind: ServiceAccount
+    name: ingress-nginx
+    namespace: ingress-nginx
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: ingress-nginx
+      meta.helm.sh/release-namespace: ingress-nginx
+    creationTimestamp: "2023-02-07T14:05:45Z"
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: internal-ingress-nginx
+      app.kubernetes.io/part-of: internal-ingress-nginx
+      app.kubernetes.io/version: 1.5.1
+      helm.sh/chart: ingress-nginx-4.4.0
+    name: internal-ingress-nginx
+    namespace: ingress-nginx
+    resourceVersion: "15984"
+    uid: 25cdc8ef-fa06-4617-87c1-d36eee6dde26
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: internal-ingress-nginx
+  subjects:
+  - kind: ServiceAccount
+    name: internal-ingress-nginx
+    namespace: ingress-nginx
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:bootstrap-signer
+    namespace: kube-public
+    resourceVersion: "198"
+    uid: 45ebb1aa-9b84-4f1c-9a11-4b74121c220f
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: system:controller:bootstrap-signer
+  subjects:
+  - kind: ServiceAccount
+    name: bootstrap-signer
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T13:44:02Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      kubernetes.io/cluster-service: "true"
+    name: antrea-cpha
+    namespace: kube-system
+    resourceVersion: "845"
+    uid: e6a9db14-f501-43d0-9cd8-18ffb2974b5f
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: antrea-cpha
+  subjects:
+  - kind: ServiceAccount
+    name: antrea-cpha
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:25Z"
+    labels:
+      app: cainjector
+      app.kubernetes.io/component: cainjector
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: cainjector
+      app.kubernetes.io/version: v1.8.2
+      helm.sh/chart: cert-manager-v1.8.2
+    name: bootstrap-cert-manager-cainjector:leaderelection
+    namespace: kube-system
+    resourceVersion: "12216"
+    uid: dd3cf330-fea2-4b17-b243-638a537fc32a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: bootstrap-cert-manager-cainjector:leaderelection
+  subjects:
+  - kind: ServiceAccount
+    name: bootstrap-cert-manager-cainjector
+    namespace: bootstrap
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:25Z"
+    labels:
+      app: cert-manager
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: cert-manager
+      app.kubernetes.io/version: v1.8.2
+      helm.sh/chart: cert-manager-v1.8.2
+    name: bootstrap-cert-manager:leaderelection
+    namespace: kube-system
+    resourceVersion: "12219"
+    uid: aa0693e1-fa50-420d-a4d8-7da991ff7cae
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: bootstrap-cert-manager:leaderelection
+  subjects:
+  - kind: ServiceAccount
+    name: certmanager
+    namespace: bootstrap
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:25Z"
+    labels:
+      app: plural-certmanager-webhook
+      app.kubernetes.io/managed-by: Helm
+      chart: plural-certmanager-webhook-0.1.5
+      heritage: Helm
+      release: bootstrap
+    name: bootstrap-plural-certmanager-webhook:webhook-authentication-reader
+    namespace: kube-system
+    resourceVersion: "12218"
+    uid: a3e95faa-cc99-4b0b-8f48-d6b6ecf9a759
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: extension-apiserver-authentication-reader
+  subjects:
+  - kind: ServiceAccount
+    name: bootstrap-plural-certmanager-webhook
+    namespace: bootstrap
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      components.gke.io/component-name: filestorecsi
+      components.gke.io/component-version: 0.5.11
+      components.gke.io/layer: addon
+    creationTimestamp: "2023-02-07T13:43:37Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      k8s-app: gcp-filestore-csi-driver
+    name: filestorecsi-leaderelection-binding
+    namespace: kube-system
+    resourceVersion: "492"
+    uid: f14b503c-aeaf-47e9-85b1-54249a3c694d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: filestorecsi-leaderelection-role
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:filestorecsi-controller
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T13:44:18Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+    name: gce:cloud-provider
+    namespace: kube-system
+    resourceVersion: "1067"
+    uid: 9be37794-7178-469b-9b66-dfd45d6b2103
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: gce:cloud-provider
+  subjects:
+  - kind: ServiceAccount
+    name: cloud-provider
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T13:43:44Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+    name: gce:gke-metadata-server-config-reader
+    namespace: kube-system
+    resourceVersion: "566"
+    uid: b9f4b818-39df-493d-af48-93b24a991dfd
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: gce:gke-metadata-server-config-reader
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:nodes
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      components.gke.io/layer: addon
+    creationTimestamp: "2023-02-07T13:43:28Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+    name: gce:podsecuritypolicy:cilium
+    namespace: kube-system
+    resourceVersion: "300"
+    uid: 75c991e0-9516-4265-b951-19b008781336
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: gce:podsecuritypolicy:privileged
+  subjects:
+  - kind: ServiceAccount
+    name: cilium
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      components.gke.io/component-name: filestorecsi
+      components.gke.io/component-version: 0.5.11
+      components.gke.io/layer: addon
+    creationTimestamp: "2023-02-07T13:43:37Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      k8s-app: gcp-filestore-csi-driver
+    name: gce:podsecuritypolicy:filestorecsi-node-sa
+    namespace: kube-system
+    resourceVersion: "486"
+    uid: 7c9313e0-8629-4d1d-9226-50e76b7c52ce
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: gce:podsecuritypolicy:privileged
+  subjects:
+  - kind: ServiceAccount
+    name: filestorecsi-node-sa
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T13:43:44Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+    name: gce:podsecuritypolicy:gke-metadata-server
+    namespace: kube-system
+    resourceVersion: "568"
+    uid: e38f3e8f-19cd-496f-9bbe-5726b3203aa2
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: gce:podsecuritypolicy:privileged
+  subjects:
+  - kind: ServiceAccount
+    name: gke-metadata-server
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      components.gke.io/component-name: pdcsi
+      components.gke.io/component-version: 0.11.10
+      components.gke.io/layer: addon
+    creationTimestamp: "2023-02-07T13:44:06Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      k8s-app: gcp-compute-persistent-disk-csi-driver
+    name: gce:podsecuritypolicy:pdcsi-node-sa
+    namespace: kube-system
+    resourceVersion: "898"
+    uid: e414e799-8f8d-4df6-b402-e1eb2de0436c
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: gce:podsecuritypolicy:privileged
+  subjects:
+  - kind: ServiceAccount
+    name: pdcsi-node-sa
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      components.gke.io/layer: addon
+    creationTimestamp: "2023-02-07T13:43:51Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      kubernetes.io/cluster-service: "true"
+    name: konnectivity-agent-cpha
+    namespace: kube-system
+    resourceVersion: "666"
+    uid: eeb3e705-00f0-4099-88f2-c9731910ba4d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: konnectivity-agent-cpha
+  subjects:
+  - kind: ServiceAccount
+    name: konnectivity-agent-cpha
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T13:44:21Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      kubernetes.io/cluster-service: "true"
+    name: metrics-server-auth-reader
+    namespace: kube-system
+    resourceVersion: "1106"
+    uid: 6e2b926a-226b-4a8d-83fd-b081e720a205
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: extension-apiserver-authentication-reader
+  subjects:
+  - kind: ServiceAccount
+    name: metrics-server
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      components.gke.io/component-name: pdcsi
+      components.gke.io/component-version: 0.11.10
+      components.gke.io/layer: addon
+    creationTimestamp: "2023-02-07T13:44:06Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      k8s-app: gcp-compute-persistent-disk-csi-driver
+    name: pdcsi-leaderelection-binding
+    namespace: kube-system
+    resourceVersion: "894"
+    uid: 0209b9dd-39f6-41aa-a98e-0d2d22ed1b84
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: pdcsi-leaderelection
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:pdcsi-controller
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      components.gke.io/component-name: snapshot-controller
+      components.gke.io/component-version: 0.5.8
+      components.gke.io/layer: addon
+    creationTimestamp: "2023-02-07T13:44:11Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+    name: snapshot-controller-leaderelection
+    namespace: kube-system
+    resourceVersion: "958"
+    uid: be9a9d8c-e325-4f2a-90e0-485bea25db0a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: snapshot-controller-leaderelection
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:snapshot-controller
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system::extension-apiserver-authentication-reader
+    namespace: kube-system
+    resourceVersion: "192"
+    uid: 594b64e3-316e-4062-823e-e488035749fb
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: extension-apiserver-authentication-reader
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:kube-controller-manager
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:kube-scheduler
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system::leader-locking-kube-controller-manager
+    namespace: kube-system
+    resourceVersion: "193"
+    uid: f29c3e0c-70a5-4ebc-8762-224489bb1d6e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: system::leader-locking-kube-controller-manager
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:kube-controller-manager
+  - kind: ServiceAccount
+    name: kube-controller-manager
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system::leader-locking-kube-scheduler
+    namespace: kube-system
+    resourceVersion: "194"
+    uid: b105bfe1-e4ea-48d6-bd2e-155a95060792
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: system::leader-locking-kube-scheduler
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:kube-scheduler
+  - kind: ServiceAccount
+    name: kube-scheduler
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:bootstrap-signer
+    namespace: kube-system
+    resourceVersion: "195"
+    uid: c8ad15a7-db12-43ff-b867-4f374eb2512e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: system:controller:bootstrap-signer
+  subjects:
+  - kind: ServiceAccount
+    name: bootstrap-signer
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:cloud-provider
+    namespace: kube-system
+    resourceVersion: "196"
+    uid: c508acd4-64ae-4e4a-aed1-612eb8a7b7e5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: system:controller:cloud-provider
+  subjects:
+  - kind: ServiceAccount
+    name: cloud-provider
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:token-cleaner
+    namespace: kube-system
+    resourceVersion: "197"
+    uid: e63af67c-031d-4b88-9d17-1a9b3179d93c
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: system:controller:token-cleaner
+  subjects:
+  - kind: ServiceAccount
+    name: token-cleaner
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:39Z"
+    labels:
+      app: loki
+      app.kubernetes.io/managed-by: Helm
+      chart: loki-2.9.1
+      heritage: Helm
+      release: monitoring
+    name: monitoring-loki
+    namespace: monitoring
+    resourceVersion: "14001"
+    uid: 9e99a6bb-6d86-4ddb-836a-6be29d6ba188
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: monitoring-loki
+  subjects:
+  - kind: ServiceAccount
+    name: monitoring-loki
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: RoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:39Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: opentelemetry-operator
+    name: opentelemetry-operator-leader-election-rolebinding
+    namespace: monitoring
+    resourceVersion: "14000"
+    uid: f5a27172-5d08-4eda-a4ec-91b239d6dc90
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: Role
+    name: opentelemetry-operator-leader-election-role
+  subjects:
+  - kind: ServiceAccount
+    name: opentelemetry-operator-controller-manager
+    namespace: monitoring
+kind: List
+metadata:
+  resourceVersion: ""

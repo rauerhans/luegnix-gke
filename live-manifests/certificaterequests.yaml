@@ -1,0 +1,181 @@
+apiVersion: v1
+items:
+- apiVersion: cert-manager.io/v1
+  kind: CertificateRequest
+  metadata:
+    annotations:
+      cert-manager.io/certificate-name: bootstrap-plural-certmanager-webhook-ca
+      cert-manager.io/certificate-revision: "1"
+      cert-manager.io/private-key-secret-name: bootstrap-plural-certmanager-webhook-ca-rx2c9
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    generateName: bootstrap-plural-certmanager-webhook-ca-
+    generation: 1
+    labels:
+      app: plural-certmanager-webhook
+      app.kubernetes.io/managed-by: Helm
+      chart: plural-certmanager-webhook-0.1.5
+      heritage: Helm
+      release: bootstrap
+    name: bootstrap-plural-certmanager-webhook-ca-dszxg
+    namespace: bootstrap
+  spec:
+    duration: 43800h0m0s
+    extra:
+      authentication.kubernetes.io/pod-name:
+      - bootstrap-cert-manager-6c56cdd4c9-hqdqp
+      authentication.kubernetes.io/pod-uid:
+      - 4c37814b-3865-4cfc-8c63-78fbf041469c
+    groups:
+    - system:serviceaccounts
+    - system:serviceaccounts:bootstrap
+    - system:authenticated
+    isCA: true
+    issuerRef:
+      name: bootstrap-plural-certmanager-webhook-selfsign
+    request: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQ2pEQ0NBWFFDQVFBd0tURW5NQ1VHQTFVRUF4TWVZMkV1Y0d4MWNtRnNMWGRsWW1odmIyc3VZMlZ5ZEMxdApZVzVoWjJWeU1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBd00zTW1zaEVRSWFXCmloYW5qc2NoWnhPLzgxL0JaUCt6bzRvWDZLcjgwMnBWWkVQZ0t3ZDV3NDd6SFdGeUZMQWxPSllSK1ZmU1d6QUMKR1g2S05LTU1HYkk3Mi9WVHo1c3lMaFhLZ3VENG9IWGlYQ3ZySGszWWo3K3BCUW0vd1NML2VqaVJERWVQR1BqMApYcHF2bUxZREhDTUMxZjVSWUNFNlpuQ3dzYk5pejl1MUZpdzV3VUZiVFYxMC94MkRFQ044aGxrL3pGeHppeWhmCkhpNkgzaXlIN3F4Sm9wVTRCRVJPWXBYUGpSTExQYkNUcUwrNU1Gc3hheHVZQ0xDejJXa214bE0zUFZxZjFNMU0KbERVNmdZUnVmSUQwNGJKdVB1SU44eVZOL0x3RUU2dDh1cmNGd0Q0OTM1ZWNJdjFvR0FDNGN4aHNMcGVKYWNRbApDZ2dzdTJaQkZ3SURBUUFCb0I0d0hBWUpLb1pJaHZjTkFRa09NUTh3RFRBTEJnTlZIUThFQkFNQ0FxUXdEUVlKCktvWklodmNOQVFFTEJRQURnZ0VCQUtaNkdBaTBxTGNqRFdybjZiZkh6cWxIWnh6bDdJa0MxOEk1SktaczBJRSsKNUxtVkxNQXJhQ000Y0F1ZExNdlhQMHVYdTFSdzZZOEpBNGtTeklQNEFPeE5VM3hBcjg1V1RzUUVhUkFwbEMwUgp5TWVrK0VZdG1vTGNJdTJGamJLS1BFdy9xRVhLUFAyMWY3QjJuZFVvQmd1YlIyN2NLYW5vZXY3Q211RWdiSGNKCkpxUm9SSzIwblJOZ1grdm1KVG0raGhGRTFJVEE5dWltUnh2OVo0NmhGaTVlanE5d2tRTDRWQ3dYWXg3aElsd1IKMlh2a0hFWkVnNXBTUVZrazRZSWNFZkdkU1BNTEJMZUZlR0xGb2xBS1V3RmtCaWJoZDdsL21Gcys3UUFVM3Y5SAo0MVNXVlh2akZDaTE5NFROTG15b2tkeGFJR2VsZUwwcnZaZ3VVaWZCU09rPQotLS0tLUVORCBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0K
+    uid: a16443e0-bb5f-460b-b15e-bf29718d4c14
+    username: system:serviceaccount:bootstrap:certmanager
+
+- apiVersion: cert-manager.io/v1
+  kind: CertificateRequest
+  metadata:
+    annotations:
+      cert-manager.io/certificate-name: bootstrap-plural-certmanager-webhook-webhook-tls
+      cert-manager.io/certificate-revision: "1"
+      cert-manager.io/private-key-secret-name: bootstrap-plural-certmanager-webhook-webhook-tls-wdldg
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    generateName: bootstrap-plural-certmanager-webhook-webhook-tls-
+    generation: 1
+    labels:
+      app: plural-certmanager-webhook
+      app.kubernetes.io/managed-by: Helm
+      chart: plural-certmanager-webhook-0.1.5
+      heritage: Helm
+      release: bootstrap
+    name: bootstrap-plural-certmanager-webhook-webhook-tls-9nq42
+    namespace: bootstrap
+  spec:
+    duration: 8760h0m0s
+    extra:
+      authentication.kubernetes.io/pod-name:
+      - bootstrap-cert-manager-6c56cdd4c9-hqdqp
+      authentication.kubernetes.io/pod-uid:
+      - 4c37814b-3865-4cfc-8c63-78fbf041469c
+    groups:
+    - system:serviceaccounts
+    - system:serviceaccounts:bootstrap
+    - system:authenticated
+    issuerRef:
+      name: bootstrap-plural-certmanager-webhook-ca
+    request: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQy96Q0NBZWNDQVFBd0FEQ0NBU0l3RFFZSktvWklodmNOQVFFQkJRQURnZ0VQQURDQ0FRb0NnZ0VCQUxhQgpBakw3Z3d4bTdBVy9MN1JOWU5laDZrcXMwRTJnejJnVGc4SHVuK01maER6Y0FyS1dySjZNRUFHcmZCSnQvREdICkVpY2RoZjVvYlp6Y0RUZ1QrQnpucW5JTzVhRUUwanVZYWQwQUdrRTg2dERzekthVW9rSVVQL3hWaWRDZVIra2gKMGg4UEpUSjNnVUR0Q1M1SVh3YktXNGVoR2k1VUhVSVVyVVkzc2xxVnJXaVR5NG5JRlYwTjhZaDRVc0plcU1MQgpBck5MQUNNUXRpSngwZzNHZnVXVnBrZ1BUVyt2TUVubklPM1Y5dmdGUDRzbGJXTUxkQk9KZ05GV0R5aGNERVhjCkpQRk1KRWVTN3NRQzg3cFI5OWJlWlMvNmFQbDBGcGk2MWlWd0hqd2dNYTZhSENRdVBSZk5qQ2NTalB0Q01FcUYKaDQrM2VWemIyaFhwQndOWWhyOENBd0VBQWFDQnVUQ0J0Z1lKS29aSWh2Y05BUWtPTVlHb01JR2xNSUdWQmdOVgpIUkVFZ1kwd2dZcUNKR0p2YjNSemRISmhjQzF3YkhWeVlXd3RZMlZ5ZEcxaGJtRm5aWEl0ZDJWaWFHOXZhNEl1ClltOXZkSE4wY21Gd0xYQnNkWEpoYkMxalpYSjBiV0Z1WVdkbGNpMTNaV0pvYjI5ckxtSnZiM1J6ZEhKaGNJSXkKWW05dmRITjBjbUZ3TFhCc2RYSmhiQzFqWlhKMGJXRnVZV2RsY2kxM1pXSm9iMjlyTG1KdmIzUnpkSEpoY0M1egpkbU13Q3dZRFZSMFBCQVFEQWdXZ01BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQnFsNEJ2SDlSTGVKMnFpdzg0CmVjTTJZdThOY01DUXhJS1Y5MnhXVXRKRGdQN1VCZjNYOVBsWkU1eUJBK044VHVyTkVoeE51c1g0K0xrTHY1MEwKQzBEU3RxV1hPb2FzTy9ZTEgxUnVFVnNhN0dKcG1RcWp2d2MySlNaOUZrTXo3eHNlYmdVUldNcHZtakNpVTFpQgpIeldiL2hScHgrWkpWdWc3TnY5cnF0Q1F1aVZGcEE2eUk2a1lBaUU0NUJHaGNiL0FFVlBNTUpaOEU3TFk0U0psCm5hY000bWpmREZhR0I5UGFGRHZXaCtvWXdMRXkyOVQ5clV4R2JDRmxUNSt2UWVyRGp5L00zbVNTbnhnVVl6RVAKcUQ5REt1alllQTFDQjdRUEQ4TnlDQlJRYmxVckl6K2ZZSGFmdmxPckdVN0cvT3B0elVGQlFuVWVweThkZHhwegoxNUYrCi0tLS0tRU5EIENFUlRJRklDQVRFIFJFUVVFU1QtLS0tLQo=
+    uid: a16443e0-bb5f-460b-b15e-bf29718d4c14
+    username: system:serviceaccount:bootstrap:certmanager
+  
+- apiVersion: cert-manager.io/v1
+  kind: CertificateRequest
+  metadata:
+    annotations:
+      cert-manager.io/certificate-name: plural-operator-serving-cert
+      cert-manager.io/certificate-revision: "1"
+      cert-manager.io/private-key-secret-name: plural-operator-serving-cert-7fv5j
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    generateName: plural-operator-serving-cert-
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: plural-operator-serving-cert-qczxh
+    namespace: bootstrap
+  spec:
+    extra:
+      authentication.kubernetes.io/pod-name:
+      - bootstrap-cert-manager-6c56cdd4c9-hqdqp
+      authentication.kubernetes.io/pod-uid:
+      - 4c37814b-3865-4cfc-8c63-78fbf041469c
+    groups:
+    - system:serviceaccounts
+    - system:serviceaccounts:bootstrap
+    - system:authenticated
+    issuerRef:
+      kind: Issuer
+      name: plural-operator-selfsigned-issuer
+    request: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQzNqQ0NBY1lDQVFBd0FEQ0NBU0l3RFFZSktvWklodmNOQVFFQkJRQURnZ0VQQURDQ0FRb0NnZ0VCQUxrVApZUHBUVElzRWIxNmpRdThXNCtiR1BsaUVvVFB0cllOWXNLRWxvejRBVk5nS0dGTFNZelQyMTJ6aTR2b2J4U1lLCkMwd25UdldFUXFVMENaSzExd3RRY1Jsd1JZQTM1cVhIaUVCNkR6bkg0Z01UemsxRFJndmpSc3hCN3V3bHZxK1cKUXlCSW5ocHQzYk1WOFIyNENaYTVBMVZMM3kvQ0NSMWt3aDZORWhDSkZ1THAwWmxRd0tvV2FZYW5NWUthdzhTKwpHRHNsRE4zeVJCUXJPQUdkeno5TmU0S2RlMTl1TWhMRDNqRmUrM2FGOVVzWW9jMktwNE1YNC8xSzdLaHdRRGlFCjZqQjZRdFliRUdqN3FKV2s4WSs2bmpnUFhjbTdGZG8rYkRvaTA4bzdnVjlKaWFKRzRkbEsvNTRKZnVwWitlaXQKd3B0NnJvK2NIUUJCTklBZ0lTY0NBd0VBQWFDQm1EQ0JsUVlKS29aSWh2Y05BUWtPTVlHSE1JR0VNSFVHQTFVZApFUVJ1TUd5Q0xYQnNkWEpoYkMxdmNHVnlZWFJ2Y2kxM1pXSm9iMjlyTFhObGNuWnBZMlV1WW05dmRITjBjbUZ3CkxuTjJZNEk3Y0d4MWNtRnNMVzl3WlhKaGRHOXlMWGRsWW1odmIyc3RjMlZ5ZG1salpTNWliMjkwYzNSeVlYQXUKYzNaakxtTnNkWE4wWlhJdWJHOWpZV3d3Q3dZRFZSMFBCQVFEQWdXZ01BMEdDU3FHU0liM0RRRUJDd1VBQTRJQgpBUUFvNnRIY0ZhZUhoV0oyNUg3VTZvQ2EvdnhjR0tYUCtJbC9SZVg3SVRqZllaMXlJcGNJaTM4U1JMUXJBMHRmCjRZczRmRVNUWFZQaURlQjE4amlYR2xwamdUMER2ekV6L3VleHMzU040VGVYb2I4TUFrR05GUTFTQUJUWWV2MU0KUGJQWXJJOW5nVm1WMWdlQXgrenVoVEphOEl3bXZLMXZXSWxPZEJzdkFGd05KM3hFZ3llcEZNblVrWHNUV2N1cApyMHQ0ZFE3Vi9SeUhJQUdvdXViT1M5RThISklDbExnWlNGbWoxY2g2T0Faai83K1RQV29PRk1oSUVVVHRUMW5VCnBESVZLTjVzUjFybDRCK0hCK3p4S01zSlNNblU5SWxrSmhmOUpWTlVydWR1Z1hjQ3dkVjNWa3ZoZ1dUVkQ2SDMKVlpyK1N3NXZNdmRwakF3bmpUYlczQlpvCi0tLS0tRU5EIENFUlRJRklDQVRFIFJFUVVFU1QtLS0tLQo=
+    uid: a16443e0-bb5f-460b-b15e-bf29718d4c14
+    username: system:serviceaccount:bootstrap:certmanager
+  
+- apiVersion: cert-manager.io/v1
+  kind: CertificateRequest
+  metadata:
+    annotations:
+      cert-manager.io/certificate-name: console-tls
+      cert-manager.io/certificate-revision: "1"
+      cert-manager.io/private-key-secret-name: console-tls-df6r9
+    generateName: console-tls-
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: console
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: console
+      app.kubernetes.io/version: 0.3.25
+      helm.sh/chart: console-0.7.42
+    name: console-tls-qc5sh
+    namespace: console
+  spec:
+    extra:
+      authentication.kubernetes.io/pod-name:
+      - bootstrap-cert-manager-6c56cdd4c9-hqdqp
+      authentication.kubernetes.io/pod-uid:
+      - 4c37814b-3865-4cfc-8c63-78fbf041469c
+    groups:
+    - system:serviceaccounts
+    - system:serviceaccounts:bootstrap
+    - system:authenticated
+    issuerRef:
+      group: cert-manager.io
+      kind: ClusterIssuer
+      name: letsencrypt-prod
+    request: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQ2pEQ0NBWFFDQVFBd0FEQ0NBU0l3RFFZSktvWklodmNOQVFFQkJRQURnZ0VQQURDQ0FRb0NnZ0VCQU44cwpjdlg0WkhreHZOdVJKSWNsUGFwS3BJSFl2ckNmb3V3dXZ4bVp4OTlaMVpqTTJLRy9oVER6WGRsaDA1NVdUZ3phCnB1Wm1DUVI3c3cyYUk1Vjh4TE9CSGZqYkZacTd2Z1dod0VJMkZVTWhOcm1KekdKRG1lTmcvZ3RTdGRpaGc1SHIKSjVTZVZxd2l5bTI3Y3VDajV6UngxNGcwWnZCR2FLMXlwWjhPa2U2WVJ6RDkwNHVySmRQQytHcEVlZyt6OE11NApUUmZEVkc4OGZxanh3cSsxV0c4U1RHMWFGZEorcWRuQ2JnMm9GTDJkQlR2bk9SSEFIM0NmS0pSSHJnTll6Z0NQCnVIeDlSWlAya29vK2lyNFlEU2d0dGI5dU43eDlTTFF1K1YrSitLSHRZRnVPcFEzRkZRcHFiQkp1clROTmlSZHAKMnVjNzNtcUZLNFJ0eURVZUhGY0NBd0VBQWFCSE1FVUdDU3FHU0liM0RRRUpEakU0TURZd0p3WURWUjBSQkNBdwpIb0ljWTI5dWMyOXNaUzVzZFdWbmJtbDRMbmxoWkdGNVlXUmhMbUZ3Y0RBTEJnTlZIUThFQkFNQ0JhQXdEUVlKCktvWklodmNOQVFFTEJRQURnZ0VCQU5EMktnSEdVOW5QaXN6b3dNelRKcDFKcWt4NmhoY29qMUwyVmdBVnVSMnQKYzBlOHBMMlIvbWd1aHFRdGI5amd6cG55SWRsK0FhVm8wQ295NG40Kzc1cnA0TWhMaGE2azFyZHpjNVdNTTFjawppemRwTkNMdEdKNlc3enoxcDRrNlMwY01ISk1HVHZMcXRJeTBQYU1rSW1WdXllbkw0NkNyS1F6YmVqQm1CR2VKCjlqSEtISFJtWWt6TGxFZm9Kc2piUUxDbTYxNjhaYlZ3N1NVb2M2U3FLWmJ0L1A5ZElsZkJCc2ttUkdhNVF5M3QKNi8wUklKUVAwREhaYk50UjRwSnk5SFo3eklRUGdhamNmOVo5ZnQwenhsUkZDNWNtTFZBMm1YQXNwRUxpTGhpNwplNDlha3krb1dQSzV5V2piSFVzam5sbVJwbWNSemZFdHV3aU90STJoUm1BPQotLS0tLUVORCBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0K
+    uid: a16443e0-bb5f-460b-b15e-bf29718d4c14
+    usages:
+    - digital signature
+    - key encipherment
+    username: system:serviceaccount:bootstrap:certmanager
+  
+- apiVersion: cert-manager.io/v1
+  kind: CertificateRequest
+  metadata:
+    annotations:
+      cert-manager.io/certificate-name: opentelemetry-operator-serving-cert
+      cert-manager.io/certificate-revision: "1"
+      cert-manager.io/private-key-secret-name: opentelemetry-operator-serving-cert-gqpzb
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    generateName: opentelemetry-operator-serving-cert-
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: opentelemetry-operator
+    name: opentelemetry-operator-serving-cert-vjxvz
+    namespace: monitoring
+  spec:
+    extra:
+      authentication.kubernetes.io/pod-name:
+      - bootstrap-cert-manager-6c56cdd4c9-hqdqp
+      authentication.kubernetes.io/pod-uid:
+      - 4c37814b-3865-4cfc-8c63-78fbf041469c
+    groups:
+    - system:serviceaccounts
+    - system:serviceaccounts:bootstrap
+    - system:authenticated
+    issuerRef:
+      kind: Issuer
+      name: opentelemetry-operator-selfsigned-issuer
+    request: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJREVEQ0NBZmdDQVFBd0lURWZNQjBHQTFVRUN4TVdiM0JsYm5SbGJHVnRaWFJ5ZVMxdmNHVnlZWFJ2Y2pDQwpBU0l3RFFZSktvWklodmNOQVFFQkJRQURnZ0VQQURDQ0FRb0NnZ0VCQU5PWGhRcjhqS1YvV21SWmxFQnFFQXlaCm1Xd2hpNUt6QnpaSzB3cUtpTzhZVW5XNVVsemFKbnpKM24xNjcvQ3k2L25wVnE0cHdFb1dZWWFTeCtMTndMamoKeEhnN00yWFJGZ0dEdjFSdkwwclkzVkdVYlNYM2gwTUNweDE0aXhNeDRmQzZUNWhxb214SEh3eHBXbFc5NnBTZAoyRFl6Qms5M3dJZi93ZWdHdmpsbU4xODJmYWFJTUQwNEFqZzRWM0lXY3Z4MjZ0QlNVKythZEIyUjUwYjZJMitLCnhBU3FJb3VHU2lPNVFrSUlJbnFRTlo2RUptQjRXWWpKRkZMSUY4UE5OTUtBUkNqaUlTb204ZHdXV3RHVWlvRFEKWVo5ZHVMdlRWcjhqNjRqS1pkRDljaGFKT2lyNlcyc3A4YktnbkRWenBmU2dVNHNZQmx6cFZnNU04OTBGT1djQwpBd0VBQWFDQnFUQ0JwZ1lKS29aSWh2Y05BUWtPTVlHWU1JR1ZNSUdGQmdOVkhSRUVmakI4Z2pWdmNHVnVkR1ZzClpXMWxkSEo1TFc5d1pYSmhkRzl5TFhkbFltaHZiMnN0YzJWeWRtbGpaUzV0YjI1cGRHOXlhVzVuTG5OMlk0SkQKYjNCbGJuUmxiR1Z0WlhSeWVTMXZjR1Z5WVhSdmNpMTNaV0pvYjI5ckxYTmxjblpwWTJVdWJXOXVhWFJ2Y21sdQpaeTV6ZG1NdVkyeDFjM1JsY2k1c2IyTmhiREFMQmdOVkhROEVCQU1DQmFBd0RRWUpLb1pJaHZjTkFRRUxCUUFECmdnRUJBTWtNL1ZFSXRyMzhnZlNXNGFNOExqWVptajNLbDlkTWF0TlZ4TUp4SVdkN2g0cENaRitzMGxBNDNVTGsKak9PYlRwc2FPTE9Lak1zVHQyU1BEZDh4bkU3cEU4NXA2d1NHcWtTMXNTZHdNNlZPVENsNng1OWdKQ2hpczd2cApwVEJIRkV5TmRXaGtwVGVLVGNuaVZZbllKckU2Tm1sbUlCRE9ZV1NaLzZReHpCdGJDQis5eUpxanpsbU9UUDhaCm9VeUwrUWV4MUZybHhuczZCYUJwdVRmbnNucEZRWmdPNzNuUENES0VZVEdQVXh6S2NRRWs1UE5xQ1NaR2tySEYKeVhJRUM5YURsaURXanFNWmpUcGZZRUZseWpOMjZMYmtDM09Db2hCN0JZRnpKUWxWdVB4VUh6VjY2eDFoYmkwVwpOeDNqVkRvZFpCNWJmdHR1d0l3Q21rMm9DbEU9Ci0tLS0tRU5EIENFUlRJRklDQVRFIFJFUVVFU1QtLS0tLQo=
+    uid: a16443e0-bb5f-460b-b15e-bf29718d4c14
+    username: system:serviceaccount:bootstrap:certmanager
+  
+kind: List
+metadata:
+  resourceVersion: ""

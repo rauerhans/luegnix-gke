@@ -1,0 +1,124 @@
+apiVersion: v1
+items:
+- apiVersion: cert-manager.io/v1
+  kind: Certificate
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    generation: 1
+    labels:
+      app: plural-certmanager-webhook
+      app.kubernetes.io/managed-by: Helm
+      chart: plural-certmanager-webhook-0.1.5
+      heritage: Helm
+      release: bootstrap
+    name: bootstrap-plural-certmanager-webhook-ca
+    namespace: bootstrap
+    resourceVersion: "12942"
+    uid: d3c6b149-4d6c-43ea-b0c8-2b79b332d894
+  spec:
+    commonName: ca.plural-webhook.cert-manager
+    duration: 43800h
+    isCA: true
+    issuerRef:
+      name: bootstrap-plural-certmanager-webhook-selfsign
+    secretName: bootstrap-plural-certmanager-webhook-ca
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    generation: 1
+    labels:
+      app: plural-certmanager-webhook
+      app.kubernetes.io/managed-by: Helm
+      chart: plural-certmanager-webhook-0.1.5
+      heritage: Helm
+      release: bootstrap
+    name: bootstrap-plural-certmanager-webhook-webhook-tls
+    namespace: bootstrap
+    resourceVersion: "13393"
+    uid: fd7e4562-959e-40e7-b017-c3f41689cb36
+  spec:
+    dnsNames:
+    - bootstrap-plural-certmanager-webhook
+    - bootstrap-plural-certmanager-webhook.bootstrap
+    - bootstrap-plural-certmanager-webhook.bootstrap.svc
+    duration: 8760h
+    issuerRef:
+      name: bootstrap-plural-certmanager-webhook-ca
+    secretName: bootstrap-plural-certmanager-webhook-webhook-tls
+  
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: plural-operator-serving-cert
+    namespace: bootstrap
+    resourceVersion: "12943"
+    uid: 9c442aea-ddf9-46d1-bbe3-67582c483cd7
+  spec:
+    dnsNames:
+    - plural-operator-webhook-service.bootstrap.svc
+    - plural-operator-webhook-service.bootstrap.svc.cluster.local
+    issuerRef:
+      kind: Issuer
+      name: plural-operator-selfsigned-issuer
+    secretName: plural-operator-webhook-server-cert
+    creationTimestamp: "2023-02-07T14:09:05Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/instance: console
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: console
+      app.kubernetes.io/version: 0.3.25
+      helm.sh/chart: console-0.7.42
+    name: console-tls
+    namespace: console
+  spec:
+    dnsNames:
+    - console.luegnix.yadayada.app
+    issuerRef:
+      group: cert-manager.io
+      kind: ClusterIssuer
+      name: letsencrypt-prod
+    secretName: console-tls
+    usages:
+    - digital signature
+    - key encipherment
+  
+- apiVersion: cert-manager.io/v1
+  kind: Certificate
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:40Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: opentelemetry-operator
+    name: opentelemetry-operator-serving-cert
+    namespace: monitoring
+    resourceVersion: "14236"
+    uid: 79c0fbba-666f-4c38-a12d-76fefe09a3e3
+  spec:
+    dnsNames:
+    - opentelemetry-operator-webhook-service.monitoring.svc
+    - opentelemetry-operator-webhook-service.monitoring.svc.cluster.local
+    issuerRef:
+      kind: Issuer
+      name: opentelemetry-operator-selfsigned-issuer
+    secretName: opentelemetry-operator-controller-manager-service-cert
+    subject:
+      organizationalUnits:
+      - opentelemetry-operator
+  
+    revision: 1
+kind: List
+metadata:
+  resourceVersion: ""

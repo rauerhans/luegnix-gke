@@ -1,0 +1,51 @@
+apiVersion: v1
+items:
+- apiVersion: cert-manager.io/v1
+  kind: ClusterIssuer
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: letsencrypt-prod
+    resourceVersion: "12817"
+    uid: 6f416912-1ed9-400f-be9a-899c63cc8293
+  spec:
+    acme:
+      email: asterix.versus.caesar@proton.me
+      privateKeySecretRef:
+        name: cert-manager-key
+      server: https://acme-v02.api.letsencrypt.org/directory
+      solvers:
+      - dns01:
+          cloudDNS:
+            project: luegnix
+- apiVersion: cert-manager.io/v1
+  kind: ClusterIssuer
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    generation: 1
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: letsencrypt-staging
+    resourceVersion: "12816"
+    uid: 898f33f9-3849-4217-9ef4-21c11ea0e319
+  spec:
+    acme:
+      email: asterix.versus.caesar@proton.me
+      privateKeySecretRef:
+        name: cert-manager-staging-key
+      server: https://acme-staging-v02.api.letsencrypt.org/directory
+      solvers:
+      - http01:
+          ingress:
+            class: nginx
+kind: List
+metadata:
+  resourceVersion: ""

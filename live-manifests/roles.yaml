@@ -1,0 +1,903 @@
+apiVersion: v1
+items:
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:25Z"
+    labels:
+      app: webhook
+      app.kubernetes.io/component: webhook
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: webhook
+      app.kubernetes.io/version: v1.8.2
+      helm.sh/chart: cert-manager-v1.8.2
+    name: bootstrap-cert-manager-webhook:dynamic-serving
+    namespace: bootstrap
+    resourceVersion: "12207"
+    uid: dffbcf3b-f327-437f-9e6f-65b4c088ca08
+  rules:
+  - apiGroups:
+    - ""
+    resourceNames:
+    - bootstrap-cert-manager-webhook-ca
+    resources:
+    - secrets
+    verbs:
+    - get
+    - list
+    - watch
+    - update
+  - apiGroups:
+    - ""
+    resources:
+    - secrets
+    verbs:
+    - create
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:25Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: kube-app-manager
+      control-plane: kube-app-manager
+    name: kube-app-manager-leader-election-role
+    namespace: bootstrap
+    resourceVersion: "12209"
+    uid: 95ee376b-afc0-4621-9ee7-1b1fe136e6a3
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - patch
+    - delete
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps/status
+    verbs:
+    - get
+    - update
+    - patch
+  - apiGroups:
+    - ""
+    resources:
+    - events
+    verbs:
+    - create
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:25Z"
+    labels:
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: bootstrap
+      app.kubernetes.io/version: "1.0"
+      helm.sh/chart: bootstrap-0.8.63
+    name: leader-election-role
+    namespace: bootstrap
+    resourceVersion: "12210"
+    uid: c4585b2c-6420-4191-9b38-6cb81d4f5569
+  rules:
+  - apiGroups:
+    - ""
+    - coordination.k8s.io
+    resources:
+    - configmaps
+    - leases
+    verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - patch
+    - delete
+  - apiGroups:
+    - ""
+    resources:
+    - events
+    verbs:
+    - create
+    - patch
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: ingress-nginx
+      meta.helm.sh/release-namespace: ingress-nginx
+    creationTimestamp: "2023-02-07T14:05:45Z"
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: ingress-nginx
+      app.kubernetes.io/part-of: ingress-nginx
+      app.kubernetes.io/version: 1.5.1
+      helm.sh/chart: ingress-nginx-4.4.0
+    name: ingress-nginx
+    namespace: ingress-nginx
+    resourceVersion: "15982"
+    uid: 5b011362-bf1e-48d7-8ab5-d0657ca47ec3
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - namespaces
+    verbs:
+    - get
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    - pods
+    - secrets
+    - endpoints
+    verbs:
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - ""
+    resources:
+    - services
+    verbs:
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - networking.k8s.io
+    resources:
+    - ingresses
+    verbs:
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - networking.k8s.io
+    resources:
+    - ingresses/status
+    verbs:
+    - update
+  - apiGroups:
+    - networking.k8s.io
+    resources:
+    - ingressclasses
+    verbs:
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - ""
+    resourceNames:
+    - ingress-nginx-leader
+    resources:
+    - configmaps
+    verbs:
+    - get
+    - update
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    verbs:
+    - create
+  - apiGroups:
+    - coordination.k8s.io
+    resourceNames:
+    - ingress-nginx-leader
+    resources:
+    - leases
+    verbs:
+    - get
+    - update
+  - apiGroups:
+    - coordination.k8s.io
+    resources:
+    - leases
+    verbs:
+    - create
+  - apiGroups:
+    - ""
+    resources:
+    - events
+    verbs:
+    - create
+    - patch
+  - apiGroups:
+    - discovery.k8s.io
+    resources:
+    - endpointslices
+    verbs:
+    - list
+    - watch
+    - get
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: ingress-nginx
+      meta.helm.sh/release-namespace: ingress-nginx
+    creationTimestamp: "2023-02-07T14:05:45Z"
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: internal-ingress-nginx
+      app.kubernetes.io/part-of: internal-ingress-nginx
+      app.kubernetes.io/version: 1.5.1
+      helm.sh/chart: ingress-nginx-4.4.0
+    name: internal-ingress-nginx
+    namespace: ingress-nginx
+    resourceVersion: "15981"
+    uid: 9c91b220-6433-4d94-9938-327e3e79948d
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - namespaces
+    verbs:
+    - get
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    - pods
+    - secrets
+    - endpoints
+    verbs:
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - ""
+    resources:
+    - services
+    verbs:
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - networking.k8s.io
+    resources:
+    - ingresses
+    verbs:
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - networking.k8s.io
+    resources:
+    - ingresses/status
+    verbs:
+    - update
+  - apiGroups:
+    - networking.k8s.io
+    resources:
+    - ingressclasses
+    verbs:
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - ""
+    resourceNames:
+    - internal-ingress-controller-leader
+    resources:
+    - configmaps
+    verbs:
+    - get
+    - update
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    verbs:
+    - create
+  - apiGroups:
+    - coordination.k8s.io
+    resourceNames:
+    - internal-ingress-controller-leader
+    resources:
+    - leases
+    verbs:
+    - get
+    - update
+  - apiGroups:
+    - coordination.k8s.io
+    resources:
+    - leases
+    verbs:
+    - create
+  - apiGroups:
+    - ""
+    resources:
+    - events
+    verbs:
+    - create
+    - patch
+  - apiGroups:
+    - discovery.k8s.io
+    resources:
+    - endpointslices
+    verbs:
+    - list
+    - watch
+    - get
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:bootstrap-signer
+    namespace: kube-public
+    resourceVersion: "191"
+    uid: c1af3775-ad8c-4a8c-b176-a37c6e20ff25
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    verbs:
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - ""
+    resourceNames:
+    - cluster-info
+    resources:
+    - configmaps
+    verbs:
+    - update
+  - apiGroups:
+    - ""
+    - events.k8s.io
+    resources:
+    - events
+    verbs:
+    - create
+    - patch
+    - update
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    creationTimestamp: "2023-02-07T13:44:02Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      kubernetes.io/cluster-service: "true"
+    name: antrea-cpha
+    namespace: kube-system
+    resourceVersion: "841"
+    uid: 98a21551-4fd3-499f-8080-0170f42ece76
+  rules:
+  - apiGroups:
+    - ""
+    resourceNames:
+    - antrea-controller-horizontal-autoscaler
+    resources:
+    - configmaps
+    verbs:
+    - get
+  - apiGroups:
+    - apps
+    resourceNames:
+    - antrea-controller
+    resources:
+    - deployments/scale
+    verbs:
+    - get
+    - update
+  - apiGroups:
+    - extensions
+    resourceNames:
+    - antrea-controller
+    resources:
+    - deployments/scale
+    verbs:
+    - get
+    - update
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:25Z"
+    labels:
+      app: cainjector
+      app.kubernetes.io/component: cainjector
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: cainjector
+      app.kubernetes.io/version: v1.8.2
+      helm.sh/chart: cert-manager-v1.8.2
+    name: bootstrap-cert-manager-cainjector:leaderelection
+    namespace: kube-system
+    resourceVersion: "12208"
+    uid: 04515201-ee12-4ba6-b239-5de284ec6050
+  rules:
+  - apiGroups:
+    - coordination.k8s.io
+    resourceNames:
+    - cert-manager-cainjector-leader-election
+    - cert-manager-cainjector-leader-election-core
+    resources:
+    - leases
+    verbs:
+    - get
+    - update
+    - patch
+  - apiGroups:
+    - coordination.k8s.io
+    resources:
+    - leases
+    verbs:
+    - create
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:25Z"
+    labels:
+      app: cert-manager
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: cert-manager
+      app.kubernetes.io/version: v1.8.2
+      helm.sh/chart: cert-manager-v1.8.2
+    name: bootstrap-cert-manager:leaderelection
+    namespace: kube-system
+    resourceVersion: "12212"
+    uid: 82d9fdaa-eeb9-4ebe-bbfa-980f111b65c4
+  rules:
+  - apiGroups:
+    - coordination.k8s.io
+    resourceNames:
+    - cert-manager-controller
+    resources:
+    - leases
+    verbs:
+    - get
+    - update
+    - patch
+  - apiGroups:
+    - coordination.k8s.io
+    resources:
+    - leases
+    verbs:
+    - create
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      kubernetes.io/deprecation: cloud-provider role is DEPRECATED in the concern
+        of potential collisions and will be removed in 1.16. Do not use this role.
+    creationTimestamp: "2023-02-07T13:44:19Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+    name: cloud-provider
+    namespace: kube-system
+    resourceVersion: "1082"
+    uid: 6f19ee5f-57c4-4d72-939a-db4e444ef289
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    verbs:
+    - create
+    - get
+    - patch
+    - update
+    - list
+    - watch
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: extension-apiserver-authentication-reader
+    namespace: kube-system
+    resourceVersion: "185"
+    uid: 86881ba8-da57-47a5-bd35-4be4d2ffe29b
+  rules:
+  - apiGroups:
+    - ""
+    resourceNames:
+    - extension-apiserver-authentication
+    resources:
+    - configmaps
+    verbs:
+    - get
+    - list
+    - watch
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      components.gke.io/component-name: filestorecsi
+      components.gke.io/component-version: 0.5.11
+      components.gke.io/layer: addon
+    creationTimestamp: "2023-02-07T13:43:37Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      k8s-app: gcp-filestore-csi-driver
+    name: filestorecsi-leaderelection-role
+    namespace: kube-system
+    resourceVersion: "489"
+    uid: ffa28b50-8d26-4190-b275-c0fef9d14766
+  rules:
+  - apiGroups:
+    - coordination.k8s.io
+    resources:
+    - leases
+    verbs:
+    - get
+    - watch
+    - list
+    - delete
+    - update
+    - create
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    creationTimestamp: "2023-02-07T13:44:19Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+    name: gce:cloud-provider
+    namespace: kube-system
+    resourceVersion: "1074"
+    uid: 1e58887b-4642-44ad-bfcd-88b2548be99a
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    verbs:
+    - create
+    - get
+    - patch
+    - update
+    - list
+    - watch
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    creationTimestamp: "2023-02-07T13:43:43Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+    name: gce:gke-metadata-server-config-reader
+    namespace: kube-system
+    resourceVersion: "561"
+    uid: 802e08c8-cc6a-4b48-b7b9-23550867c48a
+  rules:
+  - apiGroups:
+    - ""
+    resourceNames:
+    - verified-ksa-to-gsa
+    resources:
+    - configmaps
+    verbs:
+    - get
+    - watch
+    - list
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      components.gke.io/layer: addon
+    creationTimestamp: "2023-02-07T13:43:51Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      kubernetes.io/cluster-service: "true"
+    name: konnectivity-agent-cpha
+    namespace: kube-system
+    resourceVersion: "664"
+    uid: 72a427ed-4f7c-4918-b8cd-d143a1252815
+  rules:
+  - apiGroups:
+    - ""
+    resourceNames:
+    - konnectivity-agent-autoscaler-config
+    resources:
+    - configmaps
+    verbs:
+    - get
+  - apiGroups:
+    - apps
+    resourceNames:
+    - konnectivity-agent
+    resources:
+    - deployments/scale
+    verbs:
+    - get
+    - update
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      components.gke.io/component-name: pdcsi
+      components.gke.io/component-version: 0.11.10
+      components.gke.io/layer: addon
+    creationTimestamp: "2023-02-07T13:44:06Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      k8s-app: gcp-compute-persistent-disk-csi-driver
+    name: pdcsi-leaderelection
+    namespace: kube-system
+    resourceVersion: "890"
+    uid: fc8eff31-4769-47c2-aac4-449850cca2b4
+  rules:
+  - apiGroups:
+    - coordination.k8s.io
+    resources:
+    - leases
+    verbs:
+    - get
+    - watch
+    - list
+    - delete
+    - update
+    - create
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      components.gke.io/component-name: snapshot-controller
+      components.gke.io/component-version: 0.5.8
+      components.gke.io/layer: addon
+    creationTimestamp: "2023-02-07T13:44:11Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+    name: snapshot-controller-leaderelection
+    namespace: kube-system
+    resourceVersion: "956"
+    uid: ac3f7da0-b876-4a1b-bbf3-d4967ed96e8f
+  rules:
+  - apiGroups:
+    - coordination.k8s.io
+    resources:
+    - leases
+    verbs:
+    - get
+    - watch
+    - list
+    - delete
+    - update
+    - create
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system::leader-locking-kube-controller-manager
+    namespace: kube-system
+    resourceVersion: "189"
+    uid: 2fb931ae-61b7-42ee-8d7d-2387078d606f
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    verbs:
+    - watch
+  - apiGroups:
+    - ""
+    resourceNames:
+    - kube-controller-manager
+    resources:
+    - configmaps
+    verbs:
+    - get
+    - update
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system::leader-locking-kube-scheduler
+    namespace: kube-system
+    resourceVersion: "190"
+    uid: 4979af27-8dc1-4f35-8579-93dbcc505e91
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    verbs:
+    - watch
+  - apiGroups:
+    - ""
+    resourceNames:
+    - kube-scheduler
+    resources:
+    - configmaps
+    verbs:
+    - get
+    - update
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:bootstrap-signer
+    namespace: kube-system
+    resourceVersion: "186"
+    uid: e91d2af6-515a-4ea9-b67c-0bee7d2a7f7e
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - secrets
+    verbs:
+    - get
+    - list
+    - watch
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:cloud-provider
+    namespace: kube-system
+    resourceVersion: "187"
+    uid: 8813e897-4daa-4be3-88f1-0004dd805bca
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    verbs:
+    - create
+    - get
+    - list
+    - watch
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      components.gke.io/component-name: l7-lb-controller-combined
+      components.gke.io/component-version: 1.14.8-gke.0
+      components.gke.io/layer: addon
+    creationTimestamp: "2023-02-07T13:43:53Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+    name: system:controller:glbc
+    namespace: kube-system
+    resourceVersion: "695"
+    uid: 38289238-af3d-404f-a461-4e551c53604c
+  rules: null
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:token-cleaner
+    namespace: kube-system
+    resourceVersion: "188"
+    uid: 94b8935c-6c60-4d57-bb3a-d01d485564d2
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - secrets
+    verbs:
+    - delete
+    - get
+    - list
+    - watch
+  - apiGroups:
+    - ""
+    - events.k8s.io
+    resources:
+    - events
+    verbs:
+    - create
+    - patch
+    - update
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:39Z"
+    labels:
+      app: loki
+      app.kubernetes.io/managed-by: Helm
+      chart: loki-2.9.1
+      heritage: Helm
+      release: monitoring
+    name: monitoring-loki
+    namespace: monitoring
+    resourceVersion: "13997"
+    uid: e3e9fd42-94ba-4342-863f-79af9b8a2825
+  rules: null
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: Role
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:39Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: opentelemetry-operator
+    name: opentelemetry-operator-leader-election-role
+    namespace: monitoring
+    resourceVersion: "13996"
+    uid: 20041431-a33d-4963-b1d8-570fbcf503ef
+  rules:
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps
+    verbs:
+    - get
+    - list
+    - watch
+    - create
+    - update
+    - patch
+    - delete
+  - apiGroups:
+    - ""
+    resources:
+    - configmaps/status
+    verbs:
+    - get
+    - update
+    - patch
+  - apiGroups:
+    - ""
+    resources:
+    - events
+    verbs:
+    - create
+    - patch
+kind: List
+metadata:
+  resourceVersion: ""

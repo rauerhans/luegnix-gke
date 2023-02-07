@@ -1,0 +1,1755 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    labels:
+      app: cert-manager
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: cert-manager
+      app.kubernetes.io/version: v1.8.2
+      helm.sh/chart: cert-manager-v1.8.2
+    name: bootstrap-cert-manager
+    namespace: bootstrap
+    resourceVersion: "12238"
+    uid: cca0c9ab-e2c7-495d-9dfb-8342dade6199
+  spec:
+    clusterIP: 10.1.3.227
+    clusterIPs:
+    - 10.1.3.227
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: tcp-prometheus-servicemonitor
+      port: 9402
+      protocol: TCP
+      targetPort: 9402
+    selector:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/name: cert-manager
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    labels:
+      app: webhook
+      app.kubernetes.io/component: webhook
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: webhook
+      app.kubernetes.io/version: v1.8.2
+      helm.sh/chart: cert-manager-v1.8.2
+    name: bootstrap-cert-manager-webhook
+    namespace: bootstrap
+    resourceVersion: "12230"
+    uid: 0b1790c6-24d7-4cca-a40a-27a5f4763e29
+  spec:
+    clusterIP: 10.1.4.180
+    clusterIPs:
+    - 10.1.4.180
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: https
+    selector:
+      app.kubernetes.io/component: webhook
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/name: webhook
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    labels:
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: external-dns
+      helm.sh/chart: external-dns-4.11.0
+    name: bootstrap-external-dns
+    namespace: bootstrap
+    resourceVersion: "12245"
+    uid: 800c655a-b313-4598-834b-67c39d1ea35b
+  spec:
+    clusterIP: 10.1.3.183
+    clusterIPs:
+    - 10.1.3.183
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      port: 7979
+      protocol: TCP
+      targetPort: http
+    selector:
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/name: external-dns
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    labels:
+      app: plural-certmanager-webhook
+      app.kubernetes.io/managed-by: Helm
+      chart: plural-certmanager-webhook-0.1.5
+      heritage: Helm
+      release: bootstrap
+    name: bootstrap-plural-certmanager-webhook
+    namespace: bootstrap
+    resourceVersion: "12226"
+    uid: 4c4d9a77-557e-4a38-8392-bb3c57c17d78
+  spec:
+    clusterIP: 10.1.9.116
+    clusterIPs:
+    - 10.1.9.116
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: https
+    selector:
+      app: plural-certmanager-webhook
+      release: bootstrap
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: kube-app-manager
+      control-plane: kube-app-manager
+    name: kube-app-manager-metrics-service
+    namespace: bootstrap
+    resourceVersion: "12232"
+    uid: 5f5d904c-faa5-4b7c-bcd5-eb7e55d909c3
+  spec:
+    clusterIP: 10.1.5.175
+    clusterIPs:
+    - 10.1.5.175
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 8443
+      protocol: TCP
+      targetPort: https
+    selector:
+      app.kubernetes.io/name: kube-app-manager
+      control-plane: kube-app-manager
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: kube-app-manager
+      control-plane: kube-app-manager
+      controller-tools.k8s.io: "1.0"
+    name: kube-app-manager-service
+    namespace: bootstrap
+    resourceVersion: "12250"
+    uid: eb00862a-8dbf-488c-b134-b4c4ea165580
+  spec:
+    clusterIP: 10.1.11.112
+    clusterIPs:
+    - 10.1.11.112
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 443
+      protocol: TCP
+      targetPort: 443
+    selector:
+      app.kubernetes.io/name: kube-app-manager
+      control-plane: kube-app-manager
+      controller-tools.k8s.io: "1.0"
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    labels:
+      app.kubernetes.io/instance: bootstrap
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: bootstrap
+      app.kubernetes.io/version: "1.0"
+      helm.sh/chart: bootstrap-0.8.63
+    name: plural-operator
+    namespace: bootstrap
+    resourceVersion: "12248"
+    uid: 7d0977ec-dbed-41fe-9eb1-5388d99810b9
+  spec:
+    clusterIP: 10.1.1.116
+    clusterIPs:
+    - 10.1.1.116
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: metrics
+      nodePort: 31626
+      port: 8080
+      protocol: TCP
+      targetPort: metrics
+    selector:
+      control-plane: plural-operator
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: bootstrap
+      meta.helm.sh/release-namespace: bootstrap
+    creationTimestamp: "2023-02-07T14:01:26Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: plural-operator-webhook-service
+    namespace: bootstrap
+    resourceVersion: "12240"
+    uid: 96db01ad-f25a-4ab8-afbf-6a3bffcba2a7
+  spec:
+    clusterIP: 10.1.2.76
+    clusterIPs:
+    - 10.1.2.76
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https-webhook-server
+      port: 443
+      protocol: TCP
+      targetPort: webhook-server
+    selector:
+      control-plane: plural-operator
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: console
+      meta.helm.sh/release-namespace: console
+    creationTimestamp: "2023-02-07T14:09:05Z"
+    labels:
+      app: console
+      app.kubernetes.io/instance: console
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: console
+      app.kubernetes.io/version: 0.3.25
+      helm.sh/chart: console-0.7.42
+    name: console
+    namespace: console
+    resourceVersion: "18228"
+    uid: 5fc5a081-25b2-485a-8900-dd65a8a7d2eb
+  spec:
+    clusterIP: 10.1.11.130
+    clusterIPs:
+    - 10.1.11.130
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: epmd
+      nodePort: 31913
+      port: 4369
+      protocol: TCP
+      targetPort: epmd
+    - name: http
+      nodePort: 30967
+      port: 4000
+      protocol: TCP
+      targetPort: http
+    selector:
+      app.kubernetes.io/instance: console
+      app.kubernetes.io/name: console
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: console
+      meta.helm.sh/release-namespace: console
+    creationTimestamp: "2023-02-07T14:09:05Z"
+    labels:
+      app: console-headless
+      app.kubernetes.io/instance: console
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: console
+      app.kubernetes.io/version: 0.3.25
+      helm.sh/chart: console-0.7.42
+    name: console-headless
+    namespace: console
+    resourceVersion: "18214"
+    uid: bdf39b13-9b96-4eb1-86c3-fdec75d8b773
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: epmd
+      port: 4369
+      protocol: TCP
+      targetPort: epmd
+    - name: http
+      port: 4000
+      protocol: TCP
+      targetPort: http
+    selector:
+      app.kubernetes.io/instance: console
+      app.kubernetes.io/name: console
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: console
+      meta.helm.sh/release-namespace: console
+      prometheus.io/port: "9187"
+      prometheus.io/scrape: "true"
+    creationTimestamp: "2023-02-07T14:09:05Z"
+    labels:
+      app.kubernetes.io/instance: console
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: console
+      app.kubernetes.io/version: 0.3.25
+      helm.sh/chart: console-0.7.42
+      spilo-role: master
+    name: console-master
+    namespace: console
+    resourceVersion: "18222"
+    uid: 2930adb5-59f2-41e2-9e21-11a962475798
+  spec:
+    clusterIP: 10.1.0.55
+    clusterIPs:
+    - 10.1.0.55
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: postgres
+      port: 5432
+      protocol: TCP
+      targetPort: 5432
+    - name: http-metrics
+      port: 9187
+      protocol: TCP
+      targetPort: http-metrics
+    selector:
+      spilo-role: master
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: console
+      meta.helm.sh/release-namespace: console
+      prometheus.io/port: "9187"
+      prometheus.io/scrape: "true"
+    creationTimestamp: "2023-02-07T14:09:05Z"
+    labels:
+      app.kubernetes.io/instance: console
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: console
+      app.kubernetes.io/version: 0.3.25
+      helm.sh/chart: console-0.7.42
+      spilo-role: replica
+    name: console-replica
+    namespace: console
+    resourceVersion: "18218"
+    uid: f2947a97-b006-423d-b56f-1aa850a651c5
+  spec:
+    clusterIP: 10.1.1.220
+    clusterIPs:
+    - 10.1.1.220
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: postgres
+      port: 5432
+      protocol: TCP
+      targetPort: 5432
+    - name: http-metrics
+      port: 9187
+      protocol: TCP
+      targetPort: http-metrics
+    selector:
+      spilo-role: replica
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+    creationTimestamp: "2023-02-07T14:09:07Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      application: spilo
+      cluster-name: plural-console
+      spilo-role: master
+      team: plural
+    name: plural-console
+    namespace: console
+    resourceVersion: "18333"
+    uid: d8d9f99d-1059-448b-89ea-0b5bdc58e6f0
+  spec:
+    clusterIP: 10.1.12.7
+    clusterIPs:
+    - 10.1.12.7
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: postgresql
+      port: 5432
+      protocol: TCP
+      targetPort: 5432
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+    creationTimestamp: "2023-02-07T14:09:51Z"
+    labels:
+      application: spilo
+      cluster-name: plural-console
+    name: plural-console-config
+    namespace: console
+    resourceVersion: "18830"
+    uid: a713775a-911e-4ed6-a2cf-9eebd368c4aa
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    - IPv6
+    ipFamilyPolicy: RequireDualStack
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+    creationTimestamp: "2023-02-07T14:09:07Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      application: spilo
+      cluster-name: plural-console
+      spilo-role: replica
+      team: plural
+    name: plural-console-repl
+    namespace: console
+    resourceVersion: "18337"
+    uid: 16dc02c2-faf6-4959-b5d2-ef59e85b1d08
+  spec:
+    clusterIP: 10.1.4.231
+    clusterIPs:
+    - 10.1.4.231
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: postgresql
+      port: 5432
+      protocol: TCP
+      targetPort: 5432
+    selector:
+      application: spilo
+      cluster-name: plural-console
+      spilo-role: replica
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2023-02-07T13:42:57Z"
+    labels:
+      component: apiserver
+      provider: kubernetes
+    name: kubernetes
+    namespace: default
+    resourceVersion: "201"
+    uid: 662301fa-882f-4fc5-ba98-8e73c2464e90
+  spec:
+    clusterIP: 10.1.0.1
+    clusterIPs:
+    - 10.1.0.1
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 443
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: ingress-nginx
+      meta.helm.sh/release-namespace: ingress-nginx
+    creationTimestamp: "2023-02-07T14:05:46Z"
+    finalizers:
+    - service.kubernetes.io/load-balancer-cleanup
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: ingress-nginx
+      app.kubernetes.io/part-of: ingress-nginx
+      app.kubernetes.io/version: 1.5.1
+      helm.sh/chart: ingress-nginx-4.4.0
+    name: ingress-nginx-controller
+    namespace: ingress-nginx
+    resourceVersion: "16607"
+    uid: 0aefcf50-97ab-4c8a-a8a2-b048847687ca
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.1.8.17
+    clusterIPs:
+    - 10.1.8.17
+    externalTrafficPolicy: Local
+    healthCheckNodePort: 32526
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      nodePort: 30223
+      port: 80
+      protocol: TCP
+      targetPort: http
+    - name: https
+      nodePort: 32251
+      port: 443
+      protocol: TCP
+      targetPort: https
+    selector:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/name: ingress-nginx
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 34.159.95.139
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: ingress-nginx
+      meta.helm.sh/release-namespace: ingress-nginx
+    creationTimestamp: "2023-02-07T14:05:45Z"
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: ingress-nginx
+      app.kubernetes.io/part-of: ingress-nginx
+      app.kubernetes.io/version: 1.5.1
+      helm.sh/chart: ingress-nginx-4.4.0
+    name: ingress-nginx-controller-metrics
+    namespace: ingress-nginx
+    resourceVersion: "15988"
+    uid: 26035e0e-c23e-460a-a2ea-18fdc63ad43c
+  spec:
+    clusterIP: 10.1.2.63
+    clusterIPs:
+    - 10.1.2.63
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: metrics
+      port: 10254
+      protocol: TCP
+      targetPort: metrics
+    selector:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/name: ingress-nginx
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: ingress-nginx
+      meta.helm.sh/release-namespace: ingress-nginx
+      networking.gke.io/load-balancer-type: Internal
+      service.beta.kubernetes.io/aws-load-balancer-scheme: internal
+      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+    creationTimestamp: "2023-02-07T14:05:46Z"
+    finalizers:
+    - gke.networking.io/l4-ilb-v1
+    - service.kubernetes.io/load-balancer-cleanup
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: internal-ingress-nginx
+      app.kubernetes.io/part-of: internal-ingress-nginx
+      app.kubernetes.io/version: 1.5.1
+      helm.sh/chart: ingress-nginx-4.4.0
+    name: internal-ingress-nginx-controller
+    namespace: ingress-nginx
+    resourceVersion: "16920"
+    uid: 44065f05-78d6-4cb9-a136-049ca4e06fe2
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.1.7.26
+    clusterIPs:
+    - 10.1.7.26
+    externalTrafficPolicy: Local
+    healthCheckNodePort: 31176
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      nodePort: 31081
+      port: 80
+      protocol: TCP
+      targetPort: http
+    - name: https
+      nodePort: 30961
+      port: 443
+      protocol: TCP
+      targetPort: https
+    selector:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/name: internal-ingress-nginx
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 10.0.16.8
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: ingress-nginx
+      meta.helm.sh/release-namespace: ingress-nginx
+    creationTimestamp: "2023-02-07T14:05:46Z"
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: internal-ingress-nginx
+      app.kubernetes.io/part-of: internal-ingress-nginx
+      app.kubernetes.io/version: 1.5.1
+      helm.sh/chart: ingress-nginx-4.4.0
+    name: internal-ingress-nginx-controller-metrics
+    namespace: ingress-nginx
+    resourceVersion: "15993"
+    uid: 44481726-f86c-44c7-a797-a3e607cef624
+  spec:
+    clusterIP: 10.1.5.173
+    clusterIPs:
+    - 10.1.5.173
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: metrics
+      port: 10254
+      protocol: TCP
+      targetPort: metrics
+    selector:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/name: internal-ingress-nginx
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2023-02-07T13:44:01Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      app: antrea
+    name: antrea
+    namespace: kube-system
+    resourceVersion: "819"
+    uid: f54e8522-4a12-47d7-89d8-de2c21c5cb45
+  spec:
+    clusterIP: 10.1.4.253
+    clusterIPs:
+    - 10.1.4.253
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 443
+      protocol: TCP
+      targetPort: api
+    selector:
+      app: antrea
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      components.gke.io/layer: addon
+    creationTimestamp: "2023-02-07T13:43:54Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      k8s-app: glbc
+      kubernetes.io/cluster-service: "true"
+      kubernetes.io/name: GLBCDefaultBackend
+    name: default-http-backend
+    namespace: kube-system
+    resourceVersion: "720"
+    uid: 6ce5ec7b-6213-4bcb-bf23-895bbb2d3090
+  spec:
+    clusterIP: 10.1.0.124
+    clusterIPs:
+    - 10.1.0.124
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      nodePort: 32553
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      k8s-app: glbc
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2023-02-07T13:43:23Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      k8s-app: kube-dns
+      kubernetes.io/cluster-service: "true"
+      kubernetes.io/name: KubeDNS
+    name: kube-dns
+    namespace: kube-system
+    resourceVersion: "262"
+    uid: 27a3ec3a-cb43-4f0d-aa51-cbc0c1a772b3
+  spec:
+    clusterIP: 10.1.0.10
+    clusterIPs:
+    - 10.1.0.10
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: dns
+      port: 53
+      protocol: UDP
+      targetPort: 53
+    - name: dns-tcp
+      port: 53
+      protocol: TCP
+      targetPort: 53
+    selector:
+      k8s-app: kube-dns
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+    creationTimestamp: "2023-02-07T13:44:24Z"
+    labels:
+      addonmanager.kubernetes.io/mode: Reconcile
+      kubernetes.io/cluster-service: "true"
+      kubernetes.io/name: Metrics-server
+    name: metrics-server
+    namespace: kube-system
+    resourceVersion: "1154"
+    uid: efb30c7c-7531-4973-8009-554c42fa4eaf
+  spec:
+    clusterIP: 10.1.3.57
+    clusterIPs:
+    - 10.1.3.57
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 443
+      protocol: TCP
+      targetPort: https
+    selector:
+      k8s-app: metrics-server
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:39Z"
+    labels:
+      app: kube-prometheus-stack-coredns
+      app.kubernetes.io/instance: monitoring
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 39.13.0
+      chart: kube-prometheus-stack-39.13.0
+      heritage: Helm
+      jobLabel: coredns
+      release: monitoring
+    name: monitoring-coredns
+    namespace: kube-system
+    resourceVersion: "14022"
+    uid: 62b3e750-7785-45cc-bc2e-2f376feca165
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-metrics
+      port: 9153
+      protocol: TCP
+      targetPort: 9153
+    selector:
+      k8s-app: kube-dns
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:39Z"
+    labels:
+      app: kube-prometheus-stack-kube-etcd
+      app.kubernetes.io/instance: monitoring
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 39.13.0
+      chart: kube-prometheus-stack-39.13.0
+      heritage: Helm
+      jobLabel: kube-etcd
+      release: monitoring
+    name: monitoring-kube-etcd
+    namespace: kube-system
+    resourceVersion: "14005"
+    uid: 42ff8dc7-41f6-404c-b308-16f20c65fbea
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-metrics
+      port: 2379
+      protocol: TCP
+      targetPort: 2379
+    selector:
+      component: etcd
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:40Z"
+    labels:
+      app: kube-prometheus-stack-kube-proxy
+      app.kubernetes.io/instance: monitoring
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 39.13.0
+      chart: kube-prometheus-stack-39.13.0
+      heritage: Helm
+      jobLabel: kube-proxy
+      release: monitoring
+    name: monitoring-kube-proxy
+    namespace: kube-system
+    resourceVersion: "14062"
+    uid: 6e529c27-fd55-4eea-8af6-d64a51653fee
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-metrics
+      port: 10249
+      protocol: TCP
+      targetPort: 10249
+    selector:
+      k8s-app: kube-proxy
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+    creationTimestamp: "2023-02-07T14:04:27Z"
+    labels:
+      app.kubernetes.io/managed-by: prometheus-operator
+      app.kubernetes.io/name: kubelet
+      k8s-app: kubelet
+    name: monitoring-kubelet
+    namespace: kube-system
+    resourceVersion: "14826"
+    uid: 34e5acba-36ba-4d25-92ee-004fecfdfed3
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    - IPv6
+    ipFamilyPolicy: RequireDualStack
+    ports:
+    - name: https-metrics
+      port: 10250
+      protocol: TCP
+      targetPort: 10250
+    - name: http-metrics
+      port: 10255
+      protocol: TCP
+      targetPort: 10255
+    - name: cadvisor
+      port: 4194
+      protocol: TCP
+      targetPort: 4194
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+    creationTimestamp: "2023-02-07T14:04:27Z"
+    labels:
+      operated-alertmanager: "true"
+    name: alertmanager-operated
+    namespace: monitoring
+    ownerReferences:
+    - apiVersion: monitoring.coreos.com/v1
+      kind: Alertmanager
+      name: monitoring-alertmanager
+      uid: f0e347c6-265c-4e5d-b332-56c02dfd84b4
+    resourceVersion: "14812"
+    uid: 831fbd83-acee-45ec-84eb-cbb5653af05e
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-web
+      port: 9093
+      protocol: TCP
+      targetPort: http-web
+    - name: tcp-mesh
+      port: 9094
+      protocol: TCP
+      targetPort: 9094
+    - name: udp-mesh
+      port: 9094
+      protocol: UDP
+      targetPort: 9094
+    selector:
+      app.kubernetes.io/name: alertmanager
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:40Z"
+    labels:
+      app: kube-prometheus-stack-alertmanager
+      app.kubernetes.io/instance: monitoring
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 39.13.0
+      chart: kube-prometheus-stack-39.13.0
+      heritage: Helm
+      release: monitoring
+      self-monitor: "true"
+    name: monitoring-alertmanager
+    namespace: monitoring
+    resourceVersion: "14052"
+    uid: 4cec62ff-cbd5-49f3-9122-12db5728ab7d
+  spec:
+    clusterIP: 10.1.2.33
+    clusterIPs:
+    - 10.1.2.33
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-web
+      port: 9093
+      protocol: TCP
+      targetPort: 9093
+    selector:
+      alertmanager: monitoring-alertmanager
+      app.kubernetes.io/name: alertmanager
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+      prometheus.io/scrape: "true"
+    creationTimestamp: "2023-02-07T14:03:39Z"
+    labels:
+      app.kubernetes.io/component: metrics
+      app.kubernetes.io/instance: monitoring
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: kube-state-metrics
+      app.kubernetes.io/part-of: kube-state-metrics
+      app.kubernetes.io/version: 2.5.0
+      helm.sh/chart: kube-state-metrics-4.15.0
+      release: monitoring
+    name: monitoring-kube-state-metrics
+    namespace: monitoring
+    resourceVersion: "14025"
+    uid: eab5b5a7-fc36-4cfa-9d2a-c8d105d9040f
+  spec:
+    clusterIP: 10.1.13.66
+    clusterIPs:
+    - 10.1.13.66
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app.kubernetes.io/instance: monitoring
+      app.kubernetes.io/name: kube-state-metrics
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:40Z"
+    labels:
+      app: loki
+      app.kubernetes.io/managed-by: Helm
+      chart: loki-2.9.1
+      heritage: Helm
+      release: monitoring
+    name: monitoring-loki
+    namespace: monitoring
+    resourceVersion: "14058"
+    uid: 84cd2bd0-1bbc-427e-a096-df19055688fd
+  spec:
+    clusterIP: 10.1.11.155
+    clusterIPs:
+    - 10.1.11.155
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-metrics
+      port: 3100
+      protocol: TCP
+      targetPort: http-metrics
+    selector:
+      app: loki
+      release: monitoring
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:40Z"
+    labels:
+      app: loki
+      app.kubernetes.io/managed-by: Helm
+      chart: loki-2.9.1
+      heritage: Helm
+      release: monitoring
+      variant: headless
+    name: monitoring-loki-headless
+    namespace: monitoring
+    resourceVersion: "14056"
+    uid: 5b65c907-f9c2-4a0d-8783-df94a69bdb2c
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-metrics
+      port: 3100
+      protocol: TCP
+      targetPort: http-metrics
+    selector:
+      app: loki
+      release: monitoring
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:40Z"
+    labels:
+      app: kube-prometheus-stack-operator
+      app.kubernetes.io/instance: monitoring
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 39.13.0
+      chart: kube-prometheus-stack-39.13.0
+      heritage: Helm
+      release: monitoring
+    name: monitoring-operator
+    namespace: monitoring
+    resourceVersion: "14050"
+    uid: 77193439-0aa7-43d0-83ae-9600f7130fb8
+  spec:
+    clusterIP: 10.1.2.153
+    clusterIPs:
+    - 10.1.2.153
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: https
+    selector:
+      app: kube-prometheus-stack-operator
+      release: monitoring
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:39Z"
+    labels:
+      app: kube-prometheus-stack-prometheus
+      app.kubernetes.io/instance: monitoring
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/part-of: kube-prometheus-stack
+      app.kubernetes.io/version: 39.13.0
+      chart: kube-prometheus-stack-39.13.0
+      heritage: Helm
+      release: monitoring
+      self-monitor: "true"
+    name: monitoring-prometheus
+    namespace: monitoring
+    resourceVersion: "14021"
+    uid: 0cefef7b-8811-4a20-bac6-77c34947fbb4
+  spec:
+    clusterIP: 10.1.9.14
+    clusterIPs:
+    - 10.1.9.14
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-web
+      port: 9090
+      protocol: TCP
+      targetPort: 9090
+    selector:
+      app.kubernetes.io/name: prometheus
+      prometheus: monitoring-prometheus
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+      prometheus.io/scrape: "true"
+    creationTimestamp: "2023-02-07T14:03:39Z"
+    labels:
+      app: prometheus-node-exporter
+      app.kubernetes.io/managed-by: Helm
+      chart: prometheus-node-exporter-3.3.1
+      heritage: Helm
+      jobLabel: node-exporter
+      release: monitoring
+    name: monitoring-prometheus-node-exporter
+    namespace: monitoring
+    resourceVersion: "14011"
+    uid: 478b2d53-43b5-42c9-94c6-d48ebccba9d4
+  spec:
+    clusterIP: 10.1.0.241
+    clusterIPs:
+    - 10.1.0.241
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-metrics
+      port: 9100
+      protocol: TCP
+      targetPort: 9100
+    selector:
+      app: prometheus-node-exporter
+      release: monitoring
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:39Z"
+    labels:
+      app.kubernetes.io/instance: monitoring
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: opentelemetry-operator
+      app.kubernetes.io/version: 0.59.0
+      control-plane: controller-manager
+      helm.sh/chart: opentelemetry-operator-0.12.0
+    name: opentelemetry-operator-controller-manager-metrics-service
+    namespace: monitoring
+    resourceVersion: "14008"
+    uid: aa2d7042-e4c8-4571-adb3-78bb075da719
+  spec:
+    clusterIP: 10.1.3.34
+    clusterIPs:
+    - 10.1.3.34
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: https
+      port: 8443
+      protocol: TCP
+      targetPort: https
+    - name: metrics
+      port: 8080
+      protocol: TCP
+      targetPort: metrics
+    selector:
+      app.kubernetes.io/name: opentelemetry-operator
+      control-plane: controller-manager
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:03:39Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: opentelemetry-operator
+    name: opentelemetry-operator-webhook-service
+    namespace: monitoring
+    resourceVersion: "14015"
+    uid: 97852b45-8b61-4c39-aa6c-6c6b0d18e96b
+  spec:
+    clusterIP: 10.1.8.33
+    clusterIPs:
+    - 10.1.8.33
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 443
+      protocol: TCP
+      targetPort: webhook-server
+    selector:
+      app.kubernetes.io/name: opentelemetry-operator
+      control-plane: controller-manager
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:04:28Z"
+    labels:
+      app.kubernetes.io/component: opentelemetry-collector
+      app.kubernetes.io/instance: monitoring.plural-otel
+      app.kubernetes.io/managed-by: opentelemetry-operator
+      app.kubernetes.io/name: plural-otel-collector
+      app.kubernetes.io/part-of: opentelemetry
+      app.kubernetes.io/version: 0.59.0
+    name: plural-otel-collector
+    namespace: monitoring
+    ownerReferences:
+    - apiVersion: opentelemetry.io/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: OpenTelemetryCollector
+      name: plural-otel
+      uid: 4e9937b7-3d93-45b5-b204-ca45b52536ca
+    resourceVersion: "14880"
+    uid: 2de10441-e5d5-45d1-938d-e87ed11eaf0e
+  spec:
+    clusterIP: 10.1.12.4
+    clusterIPs:
+    - 10.1.12.4
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: prom-export
+      port: 8889
+      protocol: TCP
+      targetPort: 8889
+    - name: opencensus
+      port: 55678
+      protocol: TCP
+      targetPort: 55678
+    - appProtocol: grpc
+      name: otlp-grpc
+      port: 4317
+      protocol: TCP
+      targetPort: 4317
+    - appProtocol: http
+      name: zipkin
+      port: 9411
+      protocol: TCP
+      targetPort: 9411
+    selector:
+      app.kubernetes.io/component: opentelemetry-collector
+      app.kubernetes.io/instance: monitoring.plural-otel
+      app.kubernetes.io/managed-by: opentelemetry-operator
+      app.kubernetes.io/name: plural-otel-collector
+      app.kubernetes.io/part-of: opentelemetry
+      app.kubernetes.io/version: 0.59.0
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+      service.beta.openshift.io/serving-cert-secret-name: plural-otel-collector-headless-tls
+    creationTimestamp: "2023-02-07T14:04:29Z"
+    labels:
+      app.kubernetes.io/component: opentelemetry-collector
+      app.kubernetes.io/instance: monitoring.plural-otel
+      app.kubernetes.io/managed-by: opentelemetry-operator
+      app.kubernetes.io/name: plural-otel-collector
+      app.kubernetes.io/part-of: opentelemetry
+      app.kubernetes.io/version: 0.59.0
+    name: plural-otel-collector-headless
+    namespace: monitoring
+    ownerReferences:
+    - apiVersion: opentelemetry.io/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: OpenTelemetryCollector
+      name: plural-otel
+      uid: 4e9937b7-3d93-45b5-b204-ca45b52536ca
+    resourceVersion: "14885"
+    uid: d31717d8-26c6-419e-b322-44a47676fe0a
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: prom-export
+      port: 8889
+      protocol: TCP
+      targetPort: 8889
+    - name: opencensus
+      port: 55678
+      protocol: TCP
+      targetPort: 55678
+    - appProtocol: grpc
+      name: otlp-grpc
+      port: 4317
+      protocol: TCP
+      targetPort: 4317
+    - appProtocol: http
+      name: zipkin
+      port: 9411
+      protocol: TCP
+      targetPort: 9411
+    selector:
+      app.kubernetes.io/component: opentelemetry-collector
+      app.kubernetes.io/instance: monitoring.plural-otel
+      app.kubernetes.io/managed-by: opentelemetry-operator
+      app.kubernetes.io/name: plural-otel-collector
+      app.kubernetes.io/part-of: opentelemetry
+      app.kubernetes.io/version: 0.59.0
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: monitoring
+      meta.helm.sh/release-namespace: monitoring
+    creationTimestamp: "2023-02-07T14:04:29Z"
+    labels:
+      app.kubernetes.io/component: opentelemetry-collector
+      app.kubernetes.io/instance: monitoring.plural-otel
+      app.kubernetes.io/managed-by: opentelemetry-operator
+      app.kubernetes.io/name: plural-otel-collector-monitoring
+      app.kubernetes.io/part-of: opentelemetry
+      app.kubernetes.io/version: 0.59.0
+    name: plural-otel-collector-monitoring
+    namespace: monitoring
+    ownerReferences:
+    - apiVersion: opentelemetry.io/v1alpha1
+      blockOwnerDeletion: true
+      controller: true
+      kind: OpenTelemetryCollector
+      name: plural-otel
+      uid: 4e9937b7-3d93-45b5-b204-ca45b52536ca
+    resourceVersion: "14891"
+    uid: 9faf14c8-a51e-4b6e-a429-8e53359e42f4
+  spec:
+    clusterIP: 10.1.3.218
+    clusterIPs:
+    - 10.1.3.218
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: monitoring
+      port: 8888
+      protocol: TCP
+      targetPort: 8888
+    selector:
+      app.kubernetes.io/component: opentelemetry-collector
+      app.kubernetes.io/instance: monitoring.plural-otel
+      app.kubernetes.io/managed-by: opentelemetry-operator
+      app.kubernetes.io/name: plural-otel-collector
+      app.kubernetes.io/part-of: opentelemetry
+      app.kubernetes.io/version: 0.59.0
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+    creationTimestamp: "2023-02-07T14:04:28Z"
+    labels:
+      operated-prometheus: "true"
+    name: prometheus-operated
+    namespace: monitoring
+    ownerReferences:
+    - apiVersion: monitoring.coreos.com/v1
+      kind: Prometheus
+      name: monitoring-prometheus
+      uid: 5f5838c0-3b9b-4c61-98d2-fdb17b9fa685
+    resourceVersion: "14841"
+    uid: 9ac54cc7-3b42-48ec-a4fd-1ff220220b50
+  spec:
+    clusterIP: None
+    clusterIPs:
+    - None
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http-web
+      port: 9090
+      protocol: TCP
+      targetPort: http-web
+    selector:
+      app.kubernetes.io/name: prometheus
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: postgres
+      meta.helm.sh/release-namespace: postgres
+    creationTimestamp: "2023-02-07T14:05:26Z"
+    labels:
+      app.kubernetes.io/instance: postgres
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: postgres
+      app.kubernetes.io/version: 1.8.2
+      helm.sh/chart: postgres-0.2.11
+    name: postgres-operator
+    namespace: postgres
+    resourceVersion: "15703"
+    uid: 1f9bc3de-6d24-431f-b72e-e51355976f9b
+  spec:
+    clusterIP: 10.1.0.222
+    clusterIPs:
+    - 10.1.0.222
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app.kubernetes.io/instance: postgres
+      app.kubernetes.io/name: postgres
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
