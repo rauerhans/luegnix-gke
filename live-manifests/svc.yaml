@@ -5,6 +5,143 @@ items:
   metadata:
     annotations:
       cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: ingress-nginx
+      meta.helm.sh/release-namespace: ingress-nginx
+    creationTimestamp: "2023-02-07T14:05:46Z"
+    finalizers:
+    - service.kubernetes.io/load-balancer-cleanup
+    labels:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: ingress-nginx
+      app.kubernetes.io/part-of: ingress-nginx
+      app.kubernetes.io/version: 1.5.1
+      helm.sh/chart: ingress-nginx-4.4.0
+    name: ingress-nginx-controller
+    namespace: ingress-nginx
+    resourceVersion: "16607"
+    uid: 0aefcf50-97ab-4c8a-a8a2-b048847687ca
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.1.8.17
+    clusterIPs:
+    - 10.1.8.17
+    externalTrafficPolicy: Local
+    healthCheckNodePort: 32526
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: http
+      nodePort: 30223
+      port: 80
+      protocol: TCP
+      targetPort: http
+    - name: https
+      nodePort: 32251
+      port: 443
+      protocol: TCP
+      targetPort: https
+    selector:
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: ingress-nginx
+      app.kubernetes.io/name: ingress-nginx
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer:
+      ingress:
+      - ip: 34.159.95.139
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: console
+      meta.helm.sh/release-namespace: console
+    creationTimestamp: "2023-02-07T14:09:05Z"
+    labels:
+      app: console
+      app.kubernetes.io/instance: console
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: console
+      app.kubernetes.io/version: 0.3.25
+      helm.sh/chart: console-0.7.42
+    name: console
+    namespace: console
+    resourceVersion: "18228"
+    uid: 5fc5a081-25b2-485a-8900-dd65a8a7d2eb
+  spec:
+    clusterIP: 10.1.11.130
+    clusterIPs:
+    - 10.1.11.130
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - name: epmd
+      nodePort: 31913
+      port: 4369
+      protocol: TCP
+      targetPort: epmd
+    - name: http
+      nodePort: 30967
+      port: 4000
+      protocol: TCP
+      targetPort: http
+    selector:
+      app.kubernetes.io/instance: console
+      app.kubernetes.io/name: console
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
+      meta.helm.sh/release-name: postgres
+      meta.helm.sh/release-namespace: postgres
+    creationTimestamp: "2023-02-07T14:05:26Z"
+    labels:
+      app.kubernetes.io/instance: postgres
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: postgres
+      app.kubernetes.io/version: 1.8.2
+      helm.sh/chart: postgres-0.2.11
+    name: postgres-operator
+    namespace: postgres
+    resourceVersion: "15703"
+    uid: 1f9bc3de-6d24-431f-b72e-e51355976f9b
+  spec:
+    clusterIP: 10.1.0.222
+    clusterIPs:
+    - 10.1.0.222
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app.kubernetes.io/instance: postgres
+      app.kubernetes.io/name: postgres
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      cloud.google.com/neg: '{"ingress":true}'
       meta.helm.sh/release-name: bootstrap
       meta.helm.sh/release-namespace: bootstrap
     creationTimestamp: "2023-02-07T14:01:26Z"
@@ -302,52 +439,7 @@ items:
     type: ClusterIP
   status:
     loadBalancer: {}
-- apiVersion: v1
-  kind: Service
-  metadata:
-    annotations:
-      cloud.google.com/neg: '{"ingress":true}'
-      meta.helm.sh/release-name: console
-      meta.helm.sh/release-namespace: console
-    creationTimestamp: "2023-02-07T14:09:05Z"
-    labels:
-      app: console
-      app.kubernetes.io/instance: console
-      app.kubernetes.io/managed-by: Helm
-      app.kubernetes.io/name: console
-      app.kubernetes.io/version: 0.3.25
-      helm.sh/chart: console-0.7.42
-    name: console
-    namespace: console
-    resourceVersion: "18228"
-    uid: 5fc5a081-25b2-485a-8900-dd65a8a7d2eb
-  spec:
-    clusterIP: 10.1.11.130
-    clusterIPs:
-    - 10.1.11.130
-    externalTrafficPolicy: Cluster
-    internalTrafficPolicy: Cluster
-    ipFamilies:
-    - IPv4
-    ipFamilyPolicy: SingleStack
-    ports:
-    - name: epmd
-      nodePort: 31913
-      port: 4369
-      protocol: TCP
-      targetPort: epmd
-    - name: http
-      nodePort: 30967
-      port: 4000
-      protocol: TCP
-      targetPort: http
-    selector:
-      app.kubernetes.io/instance: console
-      app.kubernetes.io/name: console
-    sessionAffinity: None
-    type: NodePort
-  status:
-    loadBalancer: {}
+
 - apiVersion: v1
   kind: Service
   metadata:
@@ -603,60 +695,7 @@ items:
     type: ClusterIP
   status:
     loadBalancer: {}
-- apiVersion: v1
-  kind: Service
-  metadata:
-    annotations:
-      cloud.google.com/neg: '{"ingress":true}'
-      meta.helm.sh/release-name: ingress-nginx
-      meta.helm.sh/release-namespace: ingress-nginx
-    creationTimestamp: "2023-02-07T14:05:46Z"
-    finalizers:
-    - service.kubernetes.io/load-balancer-cleanup
-    labels:
-      app.kubernetes.io/component: controller
-      app.kubernetes.io/instance: ingress-nginx
-      app.kubernetes.io/managed-by: Helm
-      app.kubernetes.io/name: ingress-nginx
-      app.kubernetes.io/part-of: ingress-nginx
-      app.kubernetes.io/version: 1.5.1
-      helm.sh/chart: ingress-nginx-4.4.0
-    name: ingress-nginx-controller
-    namespace: ingress-nginx
-    resourceVersion: "16607"
-    uid: 0aefcf50-97ab-4c8a-a8a2-b048847687ca
-  spec:
-    allocateLoadBalancerNodePorts: true
-    clusterIP: 10.1.8.17
-    clusterIPs:
-    - 10.1.8.17
-    externalTrafficPolicy: Local
-    healthCheckNodePort: 32526
-    internalTrafficPolicy: Cluster
-    ipFamilies:
-    - IPv4
-    ipFamilyPolicy: SingleStack
-    ports:
-    - name: http
-      nodePort: 30223
-      port: 80
-      protocol: TCP
-      targetPort: http
-    - name: https
-      nodePort: 32251
-      port: 443
-      protocol: TCP
-      targetPort: https
-    selector:
-      app.kubernetes.io/component: controller
-      app.kubernetes.io/instance: ingress-nginx
-      app.kubernetes.io/name: ingress-nginx
-    sessionAffinity: None
-    type: LoadBalancer
-  status:
-    loadBalancer:
-      ingress:
-      - ip: 34.159.95.139
+
 - apiVersion: v1
   kind: Service
   metadata:
@@ -1713,43 +1752,7 @@ items:
     type: ClusterIP
   status:
     loadBalancer: {}
-- apiVersion: v1
-  kind: Service
-  metadata:
-    annotations:
-      cloud.google.com/neg: '{"ingress":true}'
-      meta.helm.sh/release-name: postgres
-      meta.helm.sh/release-namespace: postgres
-    creationTimestamp: "2023-02-07T14:05:26Z"
-    labels:
-      app.kubernetes.io/instance: postgres
-      app.kubernetes.io/managed-by: Helm
-      app.kubernetes.io/name: postgres
-      app.kubernetes.io/version: 1.8.2
-      helm.sh/chart: postgres-0.2.11
-    name: postgres-operator
-    namespace: postgres
-    resourceVersion: "15703"
-    uid: 1f9bc3de-6d24-431f-b72e-e51355976f9b
-  spec:
-    clusterIP: 10.1.0.222
-    clusterIPs:
-    - 10.1.0.222
-    internalTrafficPolicy: Cluster
-    ipFamilies:
-    - IPv4
-    ipFamilyPolicy: SingleStack
-    ports:
-    - port: 8080
-      protocol: TCP
-      targetPort: 8080
-    selector:
-      app.kubernetes.io/instance: postgres
-      app.kubernetes.io/name: postgres
-    sessionAffinity: None
-    type: ClusterIP
-  status:
-    loadBalancer: {}
+
 kind: List
 metadata:
   resourceVersion: ""
