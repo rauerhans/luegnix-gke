@@ -1,6 +1,6 @@
 metadata {
   path = "console"
-  name = "diff"
+  name = "deploy"
 }
 
 step "terraform-init" {
@@ -18,14 +18,29 @@ step "terraform-init" {
   verbose = false
 }
 
-step "terraform" {
+step "terraform-apply" {
   wkdir   = "console/terraform"
+  target  = "console/terraform"
+  command = "terraform"
+
+  args = [
+    "apply",
+    "-auto-approve",
+  ]
+
+  sha     = "h1:jQ+lY1rkj8yLthL1MBmb3HyYWDaTHRJCa04C2vO1mag="
+  retries = 2
+  verbose = false
+}
+
+step "terraform-output" {
+  wkdir   = "console"
   target  = "console/terraform"
   command = "plural"
 
   args = [
-    "wkspace",
-    "terraform-diff",
+    "output",
+    "terraform",
     "console",
   ]
 
@@ -42,7 +57,6 @@ step "kube-init" {
   args = [
     "wkspace",
     "kube-init",
-    "console",
   ]
 
   sha     = "9693a4f360740cb51420351b19484204b74fe67c3fdc31ddccc23b6cac8556c6"
@@ -50,18 +64,34 @@ step "kube-init" {
   verbose = false
 }
 
-step "helm" {
-  wkdir   = "console/helm"
+step "crds" {
+  wkdir   = "console"
+  target  = "console/crds"
+  command = "plural"
+
+  args = [
+    "wkspace",
+    "crds",
+    "console",
+  ]
+
+  sha     = "h1:47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+  retries = 0
+  verbose = false
+}
+
+step "bounce" {
+  wkdir   = "console"
   target  = "console/helm"
   command = "plural"
 
   args = [
     "wkspace",
-    "helm-diff",
+    "helm",
     "console",
   ]
 
   sha     = "h1:jY4TBIud/mgxZibMUmugxBwn+oefg7v2eIKUBgfvpbM="
-  retries = 0
+  retries = 2
   verbose = false
 }
