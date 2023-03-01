@@ -1,6 +1,6 @@
 metadata {
   path = "bootstrap"
-  name = "diff"
+  name = "deploy"
 }
 
 step "terraform-init" {
@@ -18,14 +18,29 @@ step "terraform-init" {
   verbose = false
 }
 
-step "terraform" {
+step "terraform-apply" {
   wkdir   = "bootstrap/terraform"
+  target  = "bootstrap/terraform"
+  command = "terraform"
+
+  args = [
+    "apply",
+    "-auto-approve",
+  ]
+
+  sha     = "h1:LWDYRIIOThcDMf/Y26ms7eG3O1wvTLOkjejIDRvjM5Y="
+  retries = 2
+  verbose = false
+}
+
+step "terraform-output" {
+  wkdir   = "bootstrap"
   target  = "bootstrap/terraform"
   command = "plural"
 
   args = [
-    "wkspace",
-    "terraform-diff",
+    "output",
+    "terraform",
     "bootstrap",
   ]
 
@@ -42,7 +57,6 @@ step "kube-init" {
   args = [
     "wkspace",
     "kube-init",
-    "bootstrap",
   ]
 
   sha     = "1d31eebc210c3379dc3a8bfbb0a739cd0824f5b9f3ec3cf545665c9b2be184e0"
@@ -50,18 +64,34 @@ step "kube-init" {
   verbose = false
 }
 
-step "helm" {
-  wkdir   = "bootstrap/helm"
+step "crds" {
+  wkdir   = "bootstrap"
+  target  = "bootstrap/crds"
+  command = "plural"
+
+  args = [
+    "wkspace",
+    "crds",
+    "bootstrap",
+  ]
+
+  sha     = "h1:l9QQH3v/pkycZAvjGoQXOKgYW/QlxJn+WtNuG6zOFyU="
+  retries = 0
+  verbose = false
+}
+
+step "bounce" {
+  wkdir   = "bootstrap"
   target  = "bootstrap/helm"
   command = "plural"
 
   args = [
     "wkspace",
-    "helm-diff",
+    "helm",
     "bootstrap",
   ]
 
   sha     = "h1:A6KITJ1zJwe79Sgj635zkkwoN4AJ7OkNrRjmPb0IT3Y="
-  retries = 0
+  retries = 2
   verbose = false
 }
