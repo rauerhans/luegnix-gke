@@ -1,11 +1,11 @@
-output "cluster" {
-	value = module.gcp-bootstrap.cluster
+output "vpc_network" {
+	value = module.gcp-bootstrap.vpc_network
 	sensitive = true
 }
 
 
-output "vpc_network" {
-	value = module.gcp-bootstrap.vpc_network
+output "cluster" {
+	value = module.gcp-bootstrap.cluster
 	sensitive = true
 }
 
