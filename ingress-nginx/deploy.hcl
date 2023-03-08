@@ -1,6 +1,6 @@
 metadata {
   path = "ingress-nginx"
-  name = "diff"
+  name = "deploy"
 }
 
 step "terraform-init" {
@@ -18,14 +18,29 @@ step "terraform-init" {
   verbose = false
 }
 
-step "terraform" {
+step "terraform-apply" {
   wkdir   = "ingress-nginx/terraform"
+  target  = "ingress-nginx/terraform"
+  command = "terraform"
+
+  args = [
+    "apply",
+    "-auto-approve",
+  ]
+
+  sha     = "h1:s2dskoDdmNYxonfTE4hZM/gzpZyoJ1k/LYx/tN0gwE0="
+  retries = 2
+  verbose = false
+}
+
+step "terraform-output" {
+  wkdir   = "ingress-nginx"
   target  = "ingress-nginx/terraform"
   command = "plural"
 
   args = [
-    "wkspace",
-    "terraform-diff",
+    "output",
+    "terraform",
     "ingress-nginx",
   ]
 
@@ -42,7 +57,6 @@ step "kube-init" {
   args = [
     "wkspace",
     "kube-init",
-    "ingress-nginx",
   ]
 
   sha     = "db203880f1cf7f515370d4851c69c279486548f4615f994a5c7c826ccd86eefd"
@@ -50,18 +64,34 @@ step "kube-init" {
   verbose = false
 }
 
-step "helm" {
-  wkdir   = "ingress-nginx/helm"
+step "crds" {
+  wkdir   = "ingress-nginx"
+  target  = "ingress-nginx/crds"
+  command = "plural"
+
+  args = [
+    "wkspace",
+    "crds",
+    "ingress-nginx",
+  ]
+
+  sha     = "h1:47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+  retries = 0
+  verbose = false
+}
+
+step "bounce" {
+  wkdir   = "ingress-nginx"
   target  = "ingress-nginx/helm"
   command = "plural"
 
   args = [
     "wkspace",
-    "helm-diff",
+    "helm",
     "ingress-nginx",
   ]
 
   sha     = "h1:wsCQyK2Qu0IS7cH7CP0ewk+K67g6C8FByBIs8ez5K0Y="
-  retries = 0
+  retries = 2
   verbose = false
 }
