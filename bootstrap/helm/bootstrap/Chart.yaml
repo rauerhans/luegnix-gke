@@ -2,17 +2,10 @@ apiVersion: v2
 name: bootstrap
 description: A helm chart for bootstrap
 version: 0.1.0
-<<<<<<< HEAD
-appVersion: 0.8.63
-dependencies:
-- name: bootstrap
-  version: 0.8.63
-=======
 appVersion: 0.8.68
 dependencies:
 - name: bootstrap
   version: 0.8.68
->>>>>>> origin/main
   repository: cm://app.plural.sh/cm/bootstrap
   condition: bootstrap.enabled
 - name: plural-certmanager-webhook

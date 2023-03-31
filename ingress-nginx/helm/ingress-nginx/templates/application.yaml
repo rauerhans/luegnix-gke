@@ -22,11 +22,7 @@ spec:
     kind: Job
   descriptor:
     type: ingress-nginx
-<<<<<<< HEAD
-    version: 0.1.12
-=======
     version: 0.1.13
->>>>>>> origin/main
     description: An Ingress controller for Kubernetes that uses NGINX as a reverse proxy and load balancer.
     icons:
     - src: https://plural-assets.s3.us-east-2.amazonaws.com/uploads/repos/b00f924d-a832-4a73-84ba-40fd9f5f2cf8/nginx.png?v=63830906379
