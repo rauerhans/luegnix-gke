@@ -2,9 +2,16 @@ apiVersion: v2
 name: console
 description: A helm chart for console
 version: 0.1.0
+<<<<<<< HEAD
 appVersion: 0.7.42
 dependencies:
 - name: console
   version: 0.7.42
+=======
+appVersion: 0.7.53
+dependencies:
+- name: console
+  version: 0.7.53
+>>>>>>> origin/main
   repository: cm://app.plural.sh/cm/console
   condition: console.enabled

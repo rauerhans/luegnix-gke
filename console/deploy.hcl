@@ -59,7 +59,11 @@ step "kube-init" {
     "kube-init",
   ]
 
+<<<<<<< HEAD
   sha     = "db9f1e013f266721dda974691ae0714d2132b424bf97e5905be8d6a0bb6615f0"
+=======
+  sha     = "e55a49470cc7651ef73857285bbbbce4a20616209da8c39176085fba1d5a0ae3"
+>>>>>>> origin/main
   retries = 0
   verbose = false
 }
@@ -91,7 +95,11 @@ step "bounce" {
     "console",
   ]
 
+<<<<<<< HEAD
   sha     = "h1:Cr971sYO6Q1OtpX4e4OIFt7WuKdbn1sH1tHzYhlWI24="
+=======
+  sha     = "h1:ds1xtQ22DEBghVPmYlKJsUOJMc/icfy0p/XjzDMqQEI="
+>>>>>>> origin/main
   retries = 2
   verbose = false
 }

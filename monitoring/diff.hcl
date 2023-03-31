@@ -13,7 +13,7 @@ step "terraform-init" {
     "-upgrade",
   ]
 
-  sha     = ""
+  sha     = "h1:5VyFB3R6hqqGT0kVT4w5l0AUCBTuwyE6K+p596MUbH8="
   retries = 0
   verbose = false
 }
@@ -29,7 +29,7 @@ step "terraform" {
     "monitoring",
   ]
 
-  sha     = ""
+  sha     = "h1:5VyFB3R6hqqGT0kVT4w5l0AUCBTuwyE6K+p596MUbH8="
   retries = 0
   verbose = false
 }
@@ -45,7 +45,7 @@ step "kube-init" {
     "monitoring",
   ]
 
-  sha     = ""
+  sha     = "a5135cf1e29805606f23a5fcc10131ce68bb1a900bec639a83751c042c093fd4"
   retries = 0
   verbose = false
 }
@@ -61,7 +61,7 @@ step "helm" {
     "monitoring",
   ]
 
-  sha     = ""
+  sha     = "h1:Rqn/N/qncDuNna2fY+Jz5wSQEfL8iHd0fKEOA1DccFQ="
   retries = 0
   verbose = false
 }
